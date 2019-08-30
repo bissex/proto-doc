@@ -6,6 +6,9 @@
 - [资产](zh-cn/asset.md)
 - [错误码](zh-cn/error.md)
 - API 参考
+  - 基础
+    - [通用](zh-cn/reference/common/common.md)
+    - [交易](zh-cn/reference/common/trade.md)
   - [系统](zh-cn/reference/api/v1/system.md)
   - [账户](zh-cn/reference/api/v1/account.md)
   - [资产](zh-cn/reference/api/v1/assets.md)
