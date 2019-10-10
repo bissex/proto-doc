@@ -1,194 +1,57 @@
-
-
-
-
-# biss.api.v1.trade.Trade
-
-
-
-## TickerInfo
-
-获取标的信息
-    
-> `GRPC` TickerInfo([.biss.common.trade.Ticker](#.biss.common.trade.Ticker)) return [TickerInfoResp](#TickerInfoResp)
-
-
- <!-- end with -->
-
-## Affordability
-
-可买可卖查询
-    
-> `GRPC` Affordability([AffordabilityReq](#AffordabilityReq)) return [AffordabilityResp](#AffordabilityResp)
-
-
- <!-- end with -->
-
-## Entrust
-
-委托下单
-    
-> `GRPC` Entrust([EntrustReq](#EntrustReq)) return [EntrustResp](#EntrustResp)
-
-
-
-
-
-
-> `HTTP` `POST` /v1/trade/{ticker.symbol}/{ticker.market}
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## BatchEntrust
-
-批量委托下单
-    
-> `GRPC` BatchEntrust([BatchEntrustReq](#BatchEntrustReq)) return [BatchEntrustResp](#BatchEntrustResp)
-
-
-
-
-
-
-> `HTTP` `POST` /v1/trade/batch_entrust
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## Cancel
-
-取消订单
-    
-> `GRPC` Cancel([CancelReq](#CancelReq)) return [.biss.common.Empty](#.biss.common.Empty)
-
-
-
-
-
-
-> `HTTP` `DELETE` /v1/trade/{ticker.symbol}/{ticker.market}/{oid}
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## BatchCancel
-
-批量取消订单
-    
-> `GRPC` BatchCancel([BatchCancelReq](#BatchCancelReq)) return [.biss.common.Empty](#.biss.common.Empty)
-
-
- <!-- end with -->
-
-## CancelAll
-
-全部取消订单
-    
-> `GRPC` CancelAll([CancelAllReq](#CancelAllReq)) return [.biss.common.Empty](#.biss.common.Empty)
-
-
-
-
-
-
-> `HTTP` `DELETE` /v1/trade/{ticker.symbol}/{ticker.market}
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## EntrustInfo
-
-委托信息(获取单个order信息)
-    
-> `GRPC` EntrustInfo([EntrustInfoReq](#EntrustInfoReq)) return [EntrustInfoResp](#EntrustInfoResp)
-
-
-
-
-
-
-> `HTTP` `GET` /v1/trade/{ticker.symbol}/{ticker.market}/{oid}
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## BatchEntrustInfo
-
-委托信息(获取多个order信息)
-    
-> `GRPC` BatchEntrustInfo([BatchEntrustInfoReq](#BatchEntrustInfoReq)) return [BatchEntrustInfoResp](#BatchEntrustInfoResp)
-
-
-
-
-
-
-> `HTTP` `GET` /v1/trade/{ticker.symbol}/{ticker.market}/list
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## EntrustList
-
-委托列表
-    
-> `GRPC` EntrustList([OrderListReq](#OrderListReq)) return [OrderListResp](#OrderListResp)
-
-
-
-
-
-
-> `HTTP` `GET` /v1/trade/{ticker.symbol}/{ticker.market}
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## OrderHistoryList
-
-历史订单记录
-    
-> `GRPC` OrderHistoryList([OrderListReq](#OrderListReq)) return [OrderListResp](#OrderListResp)
-
-
- <!-- end with -->
-
-## PositionList
-
-持仓列表
-    
-> `GRPC` PositionList([PositionListReq](#PositionListReq)) return [PositionListResp](#PositionListResp)
-
-
- <!-- end with -->
-
-## PositionBrief
-
-持仓状态
-    
-> `GRPC` PositionBrief([.biss.common.Empty](#.biss.common.Empty)) return [PositionBriefResp](#PositionBriefResp) `stream`
-
-
- <!-- end with -->
-
- <!-- end methods -->
- <!-- end services -->
-
-
-# 数据对象
-
-
-
-## AffordabilityReq
-
+# Protocol Documentation
+<a name="top"></a>
+
+## Table of Contents
+
+- [proto/api/v1/trade.proto](#proto/api/v1/trade.proto)
+    - [AffordabilityReq](#biss.api.v1.trade.AffordabilityReq)
+    - [AffordabilityResp](#biss.api.v1.trade.AffordabilityResp)
+    - [BatchCancelReq](#biss.api.v1.trade.BatchCancelReq)
+    - [BatchEntrustInfoReq](#biss.api.v1.trade.BatchEntrustInfoReq)
+    - [BatchEntrustInfoResp](#biss.api.v1.trade.BatchEntrustInfoResp)
+    - [BatchEntrustReq](#biss.api.v1.trade.BatchEntrustReq)
+    - [BatchEntrustResp](#biss.api.v1.trade.BatchEntrustResp)
+    - [CancelAllReq](#biss.api.v1.trade.CancelAllReq)
+    - [CancelReq](#biss.api.v1.trade.CancelReq)
+    - [EntrustInfoReq](#biss.api.v1.trade.EntrustInfoReq)
+    - [EntrustInfoResp](#biss.api.v1.trade.EntrustInfoResp)
+    - [EntrustReq](#biss.api.v1.trade.EntrustReq)
+    - [EntrustResp](#biss.api.v1.trade.EntrustResp)
+    - [Order](#biss.api.v1.trade.Order)
+    - [OrderListReq](#biss.api.v1.trade.OrderListReq)
+    - [OrderListResp](#biss.api.v1.trade.OrderListResp)
+    - [PositionBriefResp](#biss.api.v1.trade.PositionBriefResp)
+    - [PositionListReq](#biss.api.v1.trade.PositionListReq)
+    - [PositionListResp](#biss.api.v1.trade.PositionListResp)
+    - [PositionListResp.Position](#biss.api.v1.trade.PositionListResp.Position)
+    - [Tick](#biss.api.v1.trade.Tick)
+    - [TickerInfo](#biss.api.v1.trade.TickerInfo)
+    - [TickerInfoResp](#biss.api.v1.trade.TickerInfoResp)
+    - [TradeFee](#biss.api.v1.trade.TradeFee)
+    - [VCMInfo](#biss.api.v1.trade.VCMInfo)
+    - [VCMStatus](#biss.api.v1.trade.VCMStatus)
+  
+    - [OrderListSortType](#biss.api.v1.trade.OrderListSortType)
+    - [PositionListSortType](#biss.api.v1.trade.PositionListSortType)
+  
+  
+    - [Trade](#biss.api.v1.trade.Trade)
+  
+
+- [Scalar Value Types](#scalar-value-types)
+
+
+
+<a name="proto/api/v1/trade.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/api/v1/trade.proto
+
+
+
+<a name="biss.api.v1.trade.AffordabilityReq"></a>
+
+### AffordabilityReq
 
 
 
@@ -203,8 +66,11 @@
 
 
 
-## AffordabilityResp
 
+
+<a name="biss.api.v1.trade.AffordabilityResp"></a>
+
+### AffordabilityResp
 
 
 
@@ -221,20 +87,26 @@
 
 
 
-## BatchCancelReq
 
+
+<a name="biss.api.v1.trade.BatchCancelReq"></a>
+
+### BatchCancelReq
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| order_indexs | [OrderIndex](#OrderIndex) | repeated |  |
+| reqs | [CancelReq](#biss.api.v1.trade.CancelReq) | repeated |  |
 
 
 
 
-## BatchEntrustInfoReq
 
+
+<a name="biss.api.v1.trade.BatchEntrustInfoReq"></a>
+
+### BatchEntrustInfoReq
 
 
 
@@ -246,44 +118,56 @@
 
 
 
-## BatchEntrustInfoResp
 
 
+<a name="biss.api.v1.trade.BatchEntrustInfoResp"></a>
 
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| order_infos | [Order](#Order) | repeated | order 信息 |
-
-
-
-
-## BatchEntrustReq
-
+### BatchEntrustInfoResp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| reqs | [EntrustReq](#EntrustReq) | repeated | 批量委托请求数组 |
+| order_infos | [Order](#biss.api.v1.trade.Order) | repeated | order 信息 |
 
 
 
 
-## BatchEntrustResp
 
+
+<a name="biss.api.v1.trade.BatchEntrustReq"></a>
+
+### BatchEntrustReq
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| resps | [EntrustResp](#EntrustResp) | repeated | 批量委托应答数组，长度、顺序与 BatchEntrustReq.reqs 一致 |
+| reqs | [EntrustReq](#biss.api.v1.trade.EntrustReq) | repeated | 批量委托请求数组 |
 
 
 
 
-## CancelAllReq
 
+
+<a name="biss.api.v1.trade.BatchEntrustResp"></a>
+
+### BatchEntrustResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| resps | [EntrustResp](#biss.api.v1.trade.EntrustResp) | repeated | 批量委托应答数组，长度、顺序与 BatchEntrustReq.reqs 一致 |
+
+
+
+
+
+
+<a name="biss.api.v1.trade.CancelAllReq"></a>
+
+### CancelAllReq
 
 
 
@@ -294,8 +178,11 @@
 
 
 
-## CancelReq
 
+
+<a name="biss.api.v1.trade.CancelReq"></a>
+
+### CancelReq
 
 
 
@@ -307,8 +194,11 @@
 
 
 
-## EntrustInfoReq
 
+
+<a name="biss.api.v1.trade.EntrustInfoReq"></a>
+
+### EntrustInfoReq
 
 
 
@@ -320,20 +210,26 @@
 
 
 
-## EntrustInfoResp
 
+
+<a name="biss.api.v1.trade.EntrustInfoResp"></a>
+
+### EntrustInfoResp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| order_info | [Order](#Order) |  | order 信息 |
+| order_info | [Order](#biss.api.v1.trade.Order) |  | order 信息 |
 
 
 
 
-## EntrustReq
 
+
+<a name="biss.api.v1.trade.EntrustReq"></a>
+
+### EntrustReq
 
 
 
@@ -348,8 +244,11 @@
 
 
 
-## EntrustResp
 
+
+<a name="biss.api.v1.trade.EntrustResp"></a>
+
+### EntrustResp
 
 
 
@@ -362,8 +261,11 @@
 
 
 
-## Order
 
+
+<a name="biss.api.v1.trade.Order"></a>
+
+### Order
 
 
 
@@ -385,26 +287,16 @@
 | filledAmount | [string](#string) |  | 成交金额 |
 | fillStatus | [biss.common.trade.OrderFillStatus](#biss.common.trade.OrderFillStatus) |  | 成交状态 |
 | fill_ratio | [string](#string) |  |  |
-| fees | [TradeFee](#TradeFee) | repeated | 手续费明细 |
+| fees | [TradeFee](#biss.api.v1.trade.TradeFee) | repeated | 手续费明细 |
 
 
 
 
-## OrderIndex
 
 
+<a name="biss.api.v1.trade.OrderListReq"></a>
 
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  |  |
-| oid | [uint64](#uint64) |  |  |
-
-
-
-
-## OrderListReq
-
+### OrderListReq
 
 
 
@@ -413,15 +305,18 @@
 | page | [uint32](#uint32) |  |  |
 | page_size | [uint32](#uint32) |  |  |
 | sort_direction | [biss.common.SortDirection](#biss.common.SortDirection) |  |  |
-| sort_type | [OrderListSortType](#OrderListSortType) |  |  |
+| sort_type | [OrderListSortType](#biss.api.v1.trade.OrderListSortType) |  |  |
 | order_list_type | [biss.common.trade.OrderListType](#biss.common.trade.OrderListType) |  |  |
 | ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  |  |
 
 
 
 
-## OrderListResp
 
+
+<a name="biss.api.v1.trade.OrderListResp"></a>
+
+### OrderListResp
 
 
 
@@ -431,14 +326,17 @@
 | page | [uint32](#uint32) |  |  |
 | has_more | [bool](#bool) |  |  |
 | sort_direction | [biss.common.SortDirection](#biss.common.SortDirection) |  |  |
-| sort_type | [OrderListSortType](#OrderListSortType) |  |  |
-| orders | [Order](#Order) | repeated |  |
+| sort_type | [OrderListSortType](#biss.api.v1.trade.OrderListSortType) |  |  |
+| orders | [Order](#biss.api.v1.trade.Order) | repeated |  |
 
 
 
 
-## PositionBriefResp
 
+
+<a name="biss.api.v1.trade.PositionBriefResp"></a>
+
+### PositionBriefResp
 
 
 
@@ -453,8 +351,11 @@
 
 
 
-## PositionListReq
 
+
+<a name="biss.api.v1.trade.PositionListReq"></a>
+
+### PositionListReq
 
 
 
@@ -463,13 +364,16 @@
 | total | [uint32](#uint32) |  |  |
 | page | [uint32](#uint32) |  |  |
 | sort_direction | [biss.common.SortDirection](#biss.common.SortDirection) |  |  |
-| sort_type | [PositionListSortType](#PositionListSortType) |  |  |
+| sort_type | [PositionListSortType](#biss.api.v1.trade.PositionListSortType) |  |  |
 
 
 
 
-## PositionListResp
 
+
+<a name="biss.api.v1.trade.PositionListResp"></a>
+
+### PositionListResp
 
 
 
@@ -479,14 +383,17 @@
 | page | [uint32](#uint32) |  |  |
 | has_more | [bool](#bool) |  |  |
 | sort_direction | [biss.common.SortDirection](#biss.common.SortDirection) |  |  |
-| sort_type | [PositionListSortType](#PositionListSortType) |  |  |
-| positions | [PositionListResp.Position](#PositionListResp.Position) | repeated |  |
+| sort_type | [PositionListSortType](#biss.api.v1.trade.PositionListSortType) |  |  |
+| positions | [PositionListResp.Position](#biss.api.v1.trade.PositionListResp.Position) | repeated |  |
 
 
 
 
-## PositionListResp.Position
 
+
+<a name="biss.api.v1.trade.PositionListResp.Position"></a>
+
+### PositionListResp.Position
 
 
 
@@ -504,8 +411,11 @@
 
 
 
-## Tick
 
+
+<a name="biss.api.v1.trade.Tick"></a>
+
+### Tick
 
 
 
@@ -524,8 +434,11 @@
 
 
 
-## TickerInfo
 
+
+<a name="biss.api.v1.trade.TickerInfo"></a>
+
+### TickerInfo
 
 
 
@@ -537,26 +450,32 @@
 | min_ask_qty | [string](#string) |  | 最小卖出数量 |
 | max_ask_qty | [string](#string) |  | 最大卖出数量 |
 | trading_status | [biss.common.trade.TradingStatus](#biss.common.trade.TradingStatus) |  |  |
-| vcm_info | [VCMInfo](#VCMInfo) |  | 波动中断信息 |
+| vcm_info | [VCMInfo](#biss.api.v1.trade.VCMInfo) |  | 波动中断信息 |
 
 
 
 
-## TickerInfoResp
 
+
+<a name="biss.api.v1.trade.TickerInfoResp"></a>
+
+### TickerInfoResp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  |  |
-| info | [TickerInfo](#TickerInfo) |  |  |
+| info | [TickerInfo](#biss.api.v1.trade.TickerInfo) |  |  |
 
 
 
 
-## TradeFee
 
+
+<a name="biss.api.v1.trade.TradeFee"></a>
+
+### TradeFee
 
 
 
@@ -570,8 +489,11 @@
 
 
 
-## VCMInfo
 
+
+<a name="biss.api.v1.trade.VCMInfo"></a>
+
+### VCMInfo
 
 
 
@@ -580,13 +502,16 @@
 | upper_price_limit | [string](#string) |  | 触发上限 |
 | lower_price_limit | [string](#string) |  | 触发下限 |
 | cooling_off_period | [uint64](#uint64) |  | 冷却时间 |
-| status | [VCMStatus](#VCMStatus) |  | 当前状态 |
+| status | [VCMStatus](#biss.api.v1.trade.VCMStatus) |  | 当前状态 |
 
 
 
 
-## VCMStatus
 
+
+<a name="biss.api.v1.trade.VCMStatus"></a>
+
+### VCMStatus
 Volatility Control Mechanism Infomation
 
 
@@ -596,14 +521,15 @@ Volatility Control Mechanism Infomation
 | post_time | [uint64](#uint64) |  | 过期时间 |
 
 
- <!-- end messages -->
 
-# 枚举类型
+
+
+ 
 
 
 <a name="biss.api.v1.trade.OrderListSortType"></a>
 
-## OrderListSortType
+### OrderListSortType
 
 
 | Name | Number | Description |
@@ -623,7 +549,7 @@ Volatility Control Mechanism Infomation
 
 <a name="biss.api.v1.trade.PositionListSortType"></a>
 
-## PositionListSortType
+### PositionListSortType
 
 
 | Name | Number | Description |
@@ -638,7 +564,53 @@ Volatility Control Mechanism Infomation
 | RATIO | 7 |  |
 
 
- <!-- end enums -->
+ 
+
+ 
 
 
+<a name="biss.api.v1.trade.Trade"></a>
+
+### Trade
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| TickerInfo | [.biss.common.trade.Ticker](#biss.common.trade.Ticker) | [TickerInfoResp](#biss.api.v1.trade.TickerInfoResp) | 获取标的信息 |
+| Affordability | [AffordabilityReq](#biss.api.v1.trade.AffordabilityReq) | [AffordabilityResp](#biss.api.v1.trade.AffordabilityResp) | 可买可卖查询 |
+| Entrust | [EntrustReq](#biss.api.v1.trade.EntrustReq) | [EntrustResp](#biss.api.v1.trade.EntrustResp) | 委托下单 |
+| BatchEntrust | [BatchEntrustReq](#biss.api.v1.trade.BatchEntrustReq) | [BatchEntrustResp](#biss.api.v1.trade.BatchEntrustResp) | 批量委托下单 |
+| Cancel | [CancelReq](#biss.api.v1.trade.CancelReq) | [.biss.common.Empty](#biss.common.Empty) | 取消订单 |
+| BatchCancel | [BatchCancelReq](#biss.api.v1.trade.BatchCancelReq) | [.biss.common.Empty](#biss.common.Empty) | 批量取消订单 |
+| CancelAll | [CancelAllReq](#biss.api.v1.trade.CancelAllReq) | [.biss.common.Empty](#biss.common.Empty) | 全部取消订单 |
+| EntrustInfo | [EntrustInfoReq](#biss.api.v1.trade.EntrustInfoReq) | [EntrustInfoResp](#biss.api.v1.trade.EntrustInfoResp) | 委托信息(获取单个order信息) |
+| BatchEntrustInfo | [BatchEntrustInfoReq](#biss.api.v1.trade.BatchEntrustInfoReq) | [BatchEntrustInfoResp](#biss.api.v1.trade.BatchEntrustInfoResp) | 委托信息(获取多个order信息) |
+| EntrustList | [OrderListReq](#biss.api.v1.trade.OrderListReq) | [OrderListResp](#biss.api.v1.trade.OrderListResp) | 委托列表 |
+| OrderHistoryList | [OrderListReq](#biss.api.v1.trade.OrderListReq) | [OrderListResp](#biss.api.v1.trade.OrderListResp) | 历史订单记录 |
+| PositionList | [PositionListReq](#biss.api.v1.trade.PositionListReq) | [PositionListResp](#biss.api.v1.trade.PositionListResp) | 持仓列表 |
+| PositionBrief | [.biss.common.Empty](#biss.common.Empty) | [PositionBriefResp](#biss.api.v1.trade.PositionBriefResp) stream | 持仓状态 |
+
+ 
+
+
+
+## Scalar Value Types
+
+| .proto Type | Notes | C++ Type | Java Type | Python Type |
+| ----------- | ----- | -------- | --------- | ----------- |
+| <a name="double" /> double |  | double | double | float |
+| <a name="float" /> float |  | float | float | float |
+| <a name="int32" /> int32 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int |
+| <a name="int64" /> int64 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long |
+| <a name="uint32" /> uint32 | Uses variable-length encoding. | uint32 | int | int/long |
+| <a name="uint64" /> uint64 | Uses variable-length encoding. | uint64 | long | int/long |
+| <a name="sint32" /> sint32 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int |
+| <a name="sint64" /> sint64 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long |
+| <a name="fixed32" /> fixed32 | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int |
+| <a name="fixed64" /> fixed64 | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long |
+| <a name="sfixed32" /> sfixed32 | Always four bytes. | int32 | int | int |
+| <a name="sfixed64" /> sfixed64 | Always eight bytes. | int64 | long | int/long |
+| <a name="bool" /> bool |  | bool | boolean | boolean |
+| <a name="string" /> string | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode |
+| <a name="bytes" /> bytes | May contain any arbitrary sequence of bytes. | string | ByteString | str |
 

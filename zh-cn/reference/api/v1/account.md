@@ -1,260 +1,85 @@
-
-
-
-
-# biss.api.v1.account.Account
-
-
-
-## Register
-
-===================================================
-注册
-    
-> `GRPC` Register([RegisterReq](#RegisterReq)) return [.biss.common.Empty](#.biss.common.Empty)
-
-
- <!-- end with -->
-
-## Challenge
-
-登陆 Challenge
-    
-> `GRPC` Challenge([.biss.common.Empty](#.biss.common.Empty)) return [ChallengeResp](#ChallengeResp)
-
-
- <!-- end with -->
-
-## Login
-
-登陆
-    
-> `GRPC` Login([LoginReq](#LoginReq)) return [LoginResp](#LoginResp)
-
-
- <!-- end with -->
-
-## Logout
-
-登出
-    
-> `GRPC` Logout([.biss.common.Empty](#.biss.common.Empty)) return [.biss.common.Empty](#.biss.common.Empty)
-
-
- <!-- end with -->
-
-## ModifyPassword
-
-====================================================
-修改密码
-    
-> `GRPC` ModifyPassword([ModifyPasswordReq](#ModifyPasswordReq)) return [ModifyPasswordResp](#ModifyPasswordResp)
-
-
- <!-- end with -->
-
-## ResetPassword
-
-重置密码
-    
-> `GRPC` ResetPassword([ResetPasswordReq](#ResetPasswordReq)) return [ResetPasswordResp](#ResetPasswordResp)
-
-
- <!-- end with -->
-
-## BindMobile
-
-=====================================================
-绑定手机
-    
-> `GRPC` BindMobile([BindMobileReq](#BindMobileReq)) return [.biss.common.Empty](#.biss.common.Empty)
-
-
- <!-- end with -->
-
-## BindGA
-
-绑定 Google 2-Step Auth
-    
-> `GRPC` BindGA([BindGAReq](#BindGAReq)) return [.biss.common.Empty](#.biss.common.Empty)
-
-
- <!-- end with -->
-
-## KYCUpload
-
-KYC 文件上传请求
-    
-> `GRPC` KYCUpload([KYCUploadReq](#KYCUploadReq)) return [KYCUploadResp](#KYCUploadResp)
-
-
- <!-- end with -->
-
-## KYCAudit
-
-KYC 审核请求
-    
-> `GRPC` KYCAudit([KYCAuditReq](#KYCAuditReq)) return [.biss.common.Empty](#.biss.common.Empty)
-
-
- <!-- end with -->
-
-## KYCStatus
-
-KYC 审核状态请求
-    
-> `GRPC` KYCStatus([.biss.common.Empty](#.biss.common.Empty)) return [KYCStatusResp](#KYCStatusResp)
-
-
- <!-- end with -->
-
-## FeeBissDeduction
-
-手续费BISS抵扣
-    
-> `GRPC` FeeBissDeduction([FeeBissDeductionReq](#FeeBissDeductionReq)) return [.biss.common.Empty](#.biss.common.Empty)
-
-
-
-
-
-
-> `HTTP` `POST` /v1/account/fee-biss-deduction
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## UserInfo
-
-用户个人信息查询
-    
-> `GRPC` UserInfo([.biss.common.Empty](#.biss.common.Empty)) return [UserInfoResp](#UserInfoResp)
-
-
-
-
-
-
-> `HTTP` `GET` /v1/account/user-info
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## IpLog
-
-最近登陆IP查询
-    
-> `GRPC` IpLog([ClientIpLogReq](#ClientIpLogReq)) return [ClientIpLogResp](#ClientIpLogResp)
-
-
- <!-- end with -->
-
-## SendSMSVerifyCode
-
-=====================================================
-发送短信验证码到任意号码
-    
-> `GRPC` SendSMSVerifyCode([SendSMSVerifyCodeReq](#SendSMSVerifyCodeReq)) return [SendVerifyCodeResp](#SendVerifyCodeResp)
-
-
- <!-- end with -->
-
-## SendUserSMSVerifyCode
-
-发送短信验证码到用户绑定号码
-    
-> `GRPC` SendUserSMSVerifyCode([SendUserSMSVerifyCodeReq](#SendUserSMSVerifyCodeReq)) return [SendVerifyCodeResp](#SendVerifyCodeResp)
-
-
- <!-- end with -->
-
-## SendEmailVerifyCode
-
-发送邮件验证码到任意邮箱
-    
-> `GRPC` SendEmailVerifyCode([SendEmailVerifyCodeReq](#SendEmailVerifyCodeReq)) return [SendVerifyCodeResp](#SendVerifyCodeResp)
-
-
-
-
-
-
-> `HTTP` `POST` /v1/account/send-email-verify-code
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## SendUserEmailVerifyCode
-
-发送邮件验证码到用户绑定邮箱
-    
-> `GRPC` SendUserEmailVerifyCode([SendUserEmailVerifyCodeReq](#SendUserEmailVerifyCodeReq)) return [SendVerifyCodeResp](#SendVerifyCodeResp)
-
-
- <!-- end with -->
-
-## SendLoginSMSVerifyCode
-
-发送登陆二次验证短信
-    
-> `GRPC` SendLoginSMSVerifyCode([SendLoginSMSVerifyCodeReq](#SendLoginSMSVerifyCodeReq)) return [SendVerifyCodeResp](#SendVerifyCodeResp)
-
-
- <!-- end with -->
-
-## SendPasswordResetEmailVerifyCode
-
-发送密码重置验证邮件
-    
-> `GRPC` SendPasswordResetEmailVerifyCode([SendPasswordResetEmailVerifyCodeReq](#SendPasswordResetEmailVerifyCodeReq)) return [SendVerifyCodeResp](#SendVerifyCodeResp)
-
-
- <!-- end with -->
-
-## SendPasswordResetSMSVerifyCode
-
-发送密码重置二次验证短信
-    
-> `GRPC` SendPasswordResetSMSVerifyCode([SendPasswordResetSMSVerifyCodeReq](#SendPasswordResetSMSVerifyCodeReq)) return [SendVerifyCodeResp](#SendVerifyCodeResp)
-
-
- <!-- end with -->
-
-## GetGASecret
-
-获取 GA Secret
-    
-> `GRPC` GetGASecret([.biss.common.Empty](#.biss.common.Empty)) return [GetGASecretResp](#GetGASecretResp)
-
-
- <!-- end with -->
-
- <!-- end methods -->
- <!-- end services -->
-
-
-# 数据对象
-
-
-
-## BindGAReq
-
+# Protocol Documentation
+<a name="top"></a>
+
+## Table of Contents
+
+- [proto/api/v1/account.proto](#proto/api/v1/account.proto)
+    - [BindGAReq](#biss.api.v1.account.BindGAReq)
+    - [BindMobileReq](#biss.api.v1.account.BindMobileReq)
+    - [Challenge](#biss.api.v1.account.Challenge)
+    - [ChallengeResp](#biss.api.v1.account.ChallengeResp)
+    - [ClientIpLog](#biss.api.v1.account.ClientIpLog)
+    - [ClientIpLogReq](#biss.api.v1.account.ClientIpLogReq)
+    - [ClientIpLogResp](#biss.api.v1.account.ClientIpLogResp)
+    - [FeeBissDeductionReq](#biss.api.v1.account.FeeBissDeductionReq)
+    - [GetGASecretResp](#biss.api.v1.account.GetGASecretResp)
+    - [KYCAuditReq](#biss.api.v1.account.KYCAuditReq)
+    - [KYCStatusResp](#biss.api.v1.account.KYCStatusResp)
+    - [KYCUploadReq](#biss.api.v1.account.KYCUploadReq)
+    - [KYCUploadResp](#biss.api.v1.account.KYCUploadResp)
+    - [LoginReq](#biss.api.v1.account.LoginReq)
+    - [LoginResp](#biss.api.v1.account.LoginResp)
+    - [ModifyPasswordReq](#biss.api.v1.account.ModifyPasswordReq)
+    - [ModifyPasswordResp](#biss.api.v1.account.ModifyPasswordResp)
+    - [PointsInfo](#biss.api.v1.account.PointsInfo)
+    - [RegisterReq](#biss.api.v1.account.RegisterReq)
+    - [ResetPasswordReq](#biss.api.v1.account.ResetPasswordReq)
+    - [ResetPasswordResp](#biss.api.v1.account.ResetPasswordResp)
+    - [SendEmailVerifyCodeReq](#biss.api.v1.account.SendEmailVerifyCodeReq)
+    - [SendLoginSMSVerifyCodeReq](#biss.api.v1.account.SendLoginSMSVerifyCodeReq)
+    - [SendPasswordResetEmailVerifyCodeReq](#biss.api.v1.account.SendPasswordResetEmailVerifyCodeReq)
+    - [SendPasswordResetSMSVerifyCodeReq](#biss.api.v1.account.SendPasswordResetSMSVerifyCodeReq)
+    - [SendSMSVerifyCodeReq](#biss.api.v1.account.SendSMSVerifyCodeReq)
+    - [SendUserEmailVerifyCodeReq](#biss.api.v1.account.SendUserEmailVerifyCodeReq)
+    - [SendUserSMSVerifyCodeReq](#biss.api.v1.account.SendUserSMSVerifyCodeReq)
+    - [SendVerifyCodeResp](#biss.api.v1.account.SendVerifyCodeResp)
+    - [UserConfigInfo](#biss.api.v1.account.UserConfigInfo)
+    - [UserInfoResp](#biss.api.v1.account.UserInfoResp)
+    - [Verifies](#biss.api.v1.account.Verifies)
+    - [VerifyContext](#biss.api.v1.account.VerifyContext)
+    - [VerifyReq](#biss.api.v1.account.VerifyReq)
+    - [VipInfo](#biss.api.v1.account.VipInfo)
+  
+    - [KYCStatus](#biss.api.v1.account.KYCStatus)
+    - [PasswdLevel](#biss.api.v1.account.PasswdLevel)
+    - [SecuLevel](#biss.api.v1.account.SecuLevel)
+    - [VerifyScene](#biss.api.v1.account.VerifyScene)
+    - [VerifyType](#biss.api.v1.account.VerifyType)
+  
+  
+    - [Account](#biss.api.v1.account.Account)
+  
+
+- [Scalar Value Types](#scalar-value-types)
+
+
+
+<a name="proto/api/v1/account.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/api/v1/account.proto
+
+
+
+<a name="biss.api.v1.account.BindGAReq"></a>
+
+### BindGAReq
 绑定 GA 请求
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | sig | [bytes](#bytes) |  | 密码签名 |
-| verify | [VerifyReq](#VerifyReq) |  | 验证码 |
+| verify | [VerifyReq](#biss.api.v1.account.VerifyReq) |  | 验证码 |
 
 
 
 
-## BindMobileReq
 
+
+<a name="biss.api.v1.account.BindMobileReq"></a>
+
+### BindMobileReq
 绑定手机号请求
 
 
@@ -263,14 +88,17 @@ KYC 审核状态请求
 | nation_code | [string](#string) |  | 国家码 |
 | mobile | [string](#string) |  | 号码 |
 | sig | [bytes](#bytes) |  | 密码签名 |
-| verify | [VerifyReq](#VerifyReq) |  | 验证码 |
-| challenge | [Challenge](#Challenge) |  | Challenge Code, 验证密码使用 |
+| verify | [VerifyReq](#biss.api.v1.account.VerifyReq) |  | 验证码 |
+| challenge | [Challenge](#biss.api.v1.account.Challenge) |  | Challenge Code, 验证密码使用 |
 
 
 
 
-## Challenge
 
+
+<a name="biss.api.v1.account.Challenge"></a>
+
+### Challenge
 获取 Challenge Code，客户端使用后原样带回
 
 
@@ -283,20 +111,26 @@ KYC 审核状态请求
 
 
 
-## ChallengeResp
 
+
+<a name="biss.api.v1.account.ChallengeResp"></a>
+
+### ChallengeResp
 登陆挑战
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| challenge | [Challenge](#Challenge) |  |  |
+| challenge | [Challenge](#biss.api.v1.account.Challenge) |  |  |
 
 
 
 
-## ClientIpLog
 
+
+<a name="biss.api.v1.account.ClientIpLog"></a>
+
+### ClientIpLog
 
 
 
@@ -310,8 +144,11 @@ KYC 审核状态请求
 
 
 
-## ClientIpLogReq
 
+
+<a name="biss.api.v1.account.ClientIpLogReq"></a>
+
+### ClientIpLogReq
 
 
 
@@ -323,8 +160,11 @@ KYC 审核状态请求
 
 
 
-## ClientIpLogResp
 
+
+<a name="biss.api.v1.account.ClientIpLogResp"></a>
+
+### ClientIpLogResp
 
 
 
@@ -333,13 +173,16 @@ KYC 审核状态请求
 | total | [uint32](#uint32) |  |  |
 | page | [uint32](#uint32) |  |  |
 | has_more | [bool](#bool) |  |  |
-| ip_logs | [ClientIpLog](#ClientIpLog) | repeated |  |
+| ip_logs | [ClientIpLog](#biss.api.v1.account.ClientIpLog) | repeated |  |
 
 
 
 
-## FeeBissDeductionReq
 
+
+<a name="biss.api.v1.account.FeeBissDeductionReq"></a>
+
+### FeeBissDeductionReq
 手续费BISS抵扣请求
 
 
@@ -350,8 +193,11 @@ KYC 审核状态请求
 
 
 
-## GetGASecretResp
 
+
+<a name="biss.api.v1.account.GetGASecretResp"></a>
+
+### GetGASecretResp
 获取 Google Two Factor 认证秘钥
 
 
@@ -359,13 +205,16 @@ KYC 审核状态请求
 | ----- | ---- | ----- | ----------- |
 | secret | [string](#string) |  | GA 秘钥 |
 | qr | [bytes](#bytes) |  | QR PNG 图片 |
-| context | [VerifyContext](#VerifyContext) |  | 上下文 |
+| context | [VerifyContext](#biss.api.v1.account.VerifyContext) |  | 上下文 |
 
 
 
 
-## KYCAuditReq
 
+
+<a name="biss.api.v1.account.KYCAuditReq"></a>
+
+### KYCAuditReq
 KYC 审核
 
 
@@ -386,14 +235,17 @@ KYC 审核
 
 
 
-## KYCStatusResp
 
+
+<a name="biss.api.v1.account.KYCStatusResp"></a>
+
+### KYCStatusResp
 KYC 审核状态
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| status | [KYCStatus](#KYCStatus) |  |  |
+| status | [KYCStatus](#biss.api.v1.account.KYCStatus) |  |  |
 | code | [int32](#int32) |  |  |
 | mesg | [string](#string) |  |  |
 | update_time | [uint32](#uint32) |  |  |
@@ -401,8 +253,11 @@ KYC 审核状态
 
 
 
-## KYCUploadReq
 
+
+<a name="biss.api.v1.account.KYCUploadReq"></a>
+
+### KYCUploadReq
 KYC 上传
 
 
@@ -413,8 +268,11 @@ KYC 上传
 
 
 
-## KYCUploadResp
 
+
+<a name="biss.api.v1.account.KYCUploadResp"></a>
+
+### KYCUploadResp
 
 
 
@@ -425,23 +283,29 @@ KYC 上传
 
 
 
-## LoginReq
 
+
+<a name="biss.api.v1.account.LoginReq"></a>
+
+### LoginReq
 登陆请求
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | account | [string](#string) |  | 账户名，目前仅支持 Email |
-| challenge | [Challenge](#Challenge) |  | Challenge Code |
+| challenge | [Challenge](#biss.api.v1.account.Challenge) |  | Challenge Code |
 | sig | [bytes](#bytes) |  | 签名信息 |
-| verifies | [Verifies](#Verifies) |  | 验证码 |
+| verifies | [Verifies](#biss.api.v1.account.Verifies) |  | 验证码 |
 
 
 
 
-## LoginResp
 
+
+<a name="biss.api.v1.account.LoginResp"></a>
+
+### LoginResp
 登陆应答
 
 
@@ -451,42 +315,51 @@ KYC 上传
 | nick_name | [string](#string) |  | 用户名 |
 | session | [bytes](#bytes) |  | Session |
 | failures | [uint32](#uint32) |  | 连续登陆失败次数 |
-| tfa | [VerifyType](#VerifyType) | repeated | 需要两部验证类型 |
+| tfa | [VerifyType](#biss.api.v1.account.VerifyType) | repeated | 需要两部验证类型 |
 
 
 
 
-## ModifyPasswordReq
 
+
+<a name="biss.api.v1.account.ModifyPasswordReq"></a>
+
+### ModifyPasswordReq
 修改密码请求
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | passkey | [bytes](#bytes) |  | 新密码公钥 |
-| passwd_level | [PasswdLevel](#PasswdLevel) |  | 新密码强度 |
+| passwd_level | [PasswdLevel](#biss.api.v1.account.PasswdLevel) |  | 新密码强度 |
 | sig_old | [bytes](#bytes) |  | 旧密码私钥对 pubKey 的签名 |
 | sig_new | [bytes](#bytes) |  | 新密码私钥对 pubKey 的签名 |
-| verifies | [Verifies](#Verifies) |  | 验证码 |
-| challenge | [Challenge](#Challenge) |  | Challenge Code, 验证旧密码使用 |
+| verifies | [Verifies](#biss.api.v1.account.Verifies) |  | 验证码 |
+| challenge | [Challenge](#biss.api.v1.account.Challenge) |  | Challenge Code, 验证旧密码使用 |
 
 
 
 
-## ModifyPasswordResp
 
+
+<a name="biss.api.v1.account.ModifyPasswordResp"></a>
+
+### ModifyPasswordResp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| tfa | [VerifyType](#VerifyType) | repeated | 需要两部验证类型 |
+| tfa | [VerifyType](#biss.api.v1.account.VerifyType) | repeated | 需要两部验证类型 |
 
 
 
 
-## PointsInfo
 
+
+<a name="biss.api.v1.account.PointsInfo"></a>
+
+### PointsInfo
 积分信息
 
 
@@ -498,8 +371,11 @@ KYC 上传
 
 
 
-## RegisterReq
 
+
+<a name="biss.api.v1.account.RegisterReq"></a>
+
+### RegisterReq
 注册请求
 
 
@@ -508,15 +384,18 @@ KYC 上传
 | email | [string](#string) |  |  |
 | passkey | [bytes](#bytes) |  | 根据密码计算出的公钥 |
 | sig | [bytes](#bytes) |  | 私钥对 Email 的签名 |
-| passwd_level | [PasswdLevel](#PasswdLevel) |  | 安全等级 |
-| verify | [VerifyReq](#VerifyReq) |  | 验证码 |
+| passwd_level | [PasswdLevel](#biss.api.v1.account.PasswdLevel) |  | 安全等级 |
+| verify | [VerifyReq](#biss.api.v1.account.VerifyReq) |  | 验证码 |
 | invite_code | [string](#string) |  | 邀请码 |
 
 
 
 
-## ResetPasswordReq
 
+
+<a name="biss.api.v1.account.ResetPasswordReq"></a>
+
+### ResetPasswordReq
 密码重置请求
 
 
@@ -525,53 +404,65 @@ KYC 上传
 | account | [string](#string) |  |  |
 | passkey | [bytes](#bytes) |  | 根据新密码计算出的公钥 |
 | sig | [bytes](#bytes) |  | 新密码私钥对 token 的签名 |
-| passwd_level | [PasswdLevel](#PasswdLevel) |  | 密码强度 |
-| verifies | [Verifies](#Verifies) |  | Email 验证码 |
+| passwd_level | [PasswdLevel](#biss.api.v1.account.PasswdLevel) |  | 密码强度 |
+| verifies | [Verifies](#biss.api.v1.account.Verifies) |  | Email 验证码 |
 
 
 
 
-## ResetPasswordResp
 
+
+<a name="biss.api.v1.account.ResetPasswordResp"></a>
+
+### ResetPasswordResp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| tfa | [VerifyType](#VerifyType) | repeated | 需要两部验证类型 |
+| tfa | [VerifyType](#biss.api.v1.account.VerifyType) | repeated | 需要两部验证类型 |
 
 
 
 
-## SendEmailVerifyCodeReq
 
+
+<a name="biss.api.v1.account.SendEmailVerifyCodeReq"></a>
+
+### SendEmailVerifyCodeReq
 发送邮件验证码到任意邮箱
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | email | [string](#string) |  | Email |
-| scene | [VerifyScene](#VerifyScene) |  | 使用场景 |
+| scene | [VerifyScene](#biss.api.v1.account.VerifyScene) |  | 使用场景 |
 
 
 
 
-## SendLoginSMSVerifyCodeReq
 
+
+<a name="biss.api.v1.account.SendLoginSMSVerifyCodeReq"></a>
+
+### SendLoginSMSVerifyCodeReq
 发送短信验证码到用户绑定的号码
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | account | [string](#string) |  | 账号 |
-| challenge | [Challenge](#Challenge) |  | Challenge Code |
+| challenge | [Challenge](#biss.api.v1.account.Challenge) |  | Challenge Code |
 | sig | [bytes](#bytes) |  | 签名 |
 
 
 
 
-## SendPasswordResetEmailVerifyCodeReq
 
+
+<a name="biss.api.v1.account.SendPasswordResetEmailVerifyCodeReq"></a>
+
+### SendPasswordResetEmailVerifyCodeReq
 发送邮箱验证码到用户绑定的号码
 
 
@@ -582,21 +473,27 @@ KYC 上传
 
 
 
-## SendPasswordResetSMSVerifyCodeReq
 
+
+<a name="biss.api.v1.account.SendPasswordResetSMSVerifyCodeReq"></a>
+
+### SendPasswordResetSMSVerifyCodeReq
 发送短信验证码到用户绑定的号码
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | account | [string](#string) |  | 账号 |
-| verify | [VerifyReq](#VerifyReq) |  | 邮件验证码 |
+| verify | [VerifyReq](#biss.api.v1.account.VerifyReq) |  | 邮件验证码 |
 
 
 
 
-## SendSMSVerifyCodeReq
 
+
+<a name="biss.api.v1.account.SendSMSVerifyCodeReq"></a>
+
+### SendSMSVerifyCodeReq
 发送短信验证码到任意号码
 
 
@@ -604,49 +501,61 @@ KYC 上传
 | ----- | ---- | ----- | ----------- |
 | nation_code | [string](#string) |  | 国家码 |
 | mobile | [string](#string) |  | 号码 |
-| scene | [VerifyScene](#VerifyScene) |  | 使用场景 |
+| scene | [VerifyScene](#biss.api.v1.account.VerifyScene) |  | 使用场景 |
 
 
 
 
-## SendUserEmailVerifyCodeReq
 
+
+<a name="biss.api.v1.account.SendUserEmailVerifyCodeReq"></a>
+
+### SendUserEmailVerifyCodeReq
 发送邮件验证码到用户绑定的邮箱
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| scene | [VerifyScene](#VerifyScene) |  | 使用场景 |
+| scene | [VerifyScene](#biss.api.v1.account.VerifyScene) |  | 使用场景 |
 
 
 
 
-## SendUserSMSVerifyCodeReq
 
+
+<a name="biss.api.v1.account.SendUserSMSVerifyCodeReq"></a>
+
+### SendUserSMSVerifyCodeReq
 发送短信验证码到用户绑定的号码
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| scene | [VerifyScene](#VerifyScene) |  | 使用场景 |
+| scene | [VerifyScene](#biss.api.v1.account.VerifyScene) |  | 使用场景 |
 
 
 
 
-## SendVerifyCodeResp
 
+
+<a name="biss.api.v1.account.SendVerifyCodeResp"></a>
+
+### SendVerifyCodeResp
 验证码发送应答
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| context | [VerifyContext](#VerifyContext) |  | 上下文 |
+| context | [VerifyContext](#biss.api.v1.account.VerifyContext) |  | 上下文 |
 
 
 
 
-## UserConfigInfo
 
+
+<a name="biss.api.v1.account.UserConfigInfo"></a>
+
+### UserConfigInfo
 用户配置信息
 
 
@@ -657,8 +566,11 @@ KYC 上传
 
 
 
-## UserInfoResp
 
+
+<a name="biss.api.v1.account.UserInfoResp"></a>
+
+### UserInfoResp
 
 
 
@@ -666,42 +578,48 @@ KYC 上传
 | ----- | ---- | ----- | ----------- |
 | account | [string](#string) |  |  |
 | withdraw_limit | [string](#string) |  | 提款额度 |
-| passwd_level | [PasswdLevel](#PasswdLevel) |  | 密码强度 |
-| secu_level | [SecuLevel](#SecuLevel) |  | 安全等级 |
-| kyc_status | [KYCStatus](#KYCStatus) |  | 身份是否认证 |
+| passwd_level | [PasswdLevel](#biss.api.v1.account.PasswdLevel) |  | 密码强度 |
+| secu_level | [SecuLevel](#biss.api.v1.account.SecuLevel) |  | 安全等级 |
+| kyc_status | [KYCStatus](#biss.api.v1.account.KYCStatus) |  | 身份是否认证 |
 | mobile | [string](#string) |  |  |
-| tfa | [VerifyType](#VerifyType) | repeated | 支持的两步验证类型 |
+| tfa | [VerifyType](#biss.api.v1.account.VerifyType) | repeated | 支持的两步验证类型 |
 | invite_code | [string](#string) |  | 邀请码 |
-| user_config_info | [UserConfigInfo](#UserConfigInfo) |  | 用户配置信息 |
-| vip_info | [VipInfo](#VipInfo) |  | 会员信息 |
-| points_info | [PointsInfo](#PointsInfo) |  | 积分信息 |
+| user_config_info | [UserConfigInfo](#biss.api.v1.account.UserConfigInfo) |  | 用户配置信息 |
+| vip_info | [VipInfo](#biss.api.v1.account.VipInfo) |  | 会员信息 |
+| points_info | [PointsInfo](#biss.api.v1.account.PointsInfo) |  | 积分信息 |
 
 
 
 
-## Verifies
 
+
+<a name="biss.api.v1.account.Verifies"></a>
+
+### Verifies
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| email | [VerifyReq](#VerifyReq) |  |  |
-| mobile | [VerifyReq](#VerifyReq) |  |  |
-| ga | [VerifyReq](#VerifyReq) |  |  |
+| email | [VerifyReq](#biss.api.v1.account.VerifyReq) |  |  |
+| mobile | [VerifyReq](#biss.api.v1.account.VerifyReq) |  |  |
+| ga | [VerifyReq](#biss.api.v1.account.VerifyReq) |  |  |
 
 
 
 
-## VerifyContext
 
+
+<a name="biss.api.v1.account.VerifyContext"></a>
+
+### VerifyContext
 验证码上下文
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| type | [VerifyType](#VerifyType) |  | 验证类型 |
-| scene | [VerifyScene](#VerifyScene) |  | 使用场景 |
+| type | [VerifyType](#biss.api.v1.account.VerifyType) |  | 验证类型 |
+| scene | [VerifyScene](#biss.api.v1.account.VerifyScene) |  | 使用场景 |
 | ts | [uint32](#uint32) |  | 时间戳 |
 | nonce | [uint32](#uint32) |  | 随机数 |
 | ext | [bytes](#bytes) |  | 扩展信息 |
@@ -709,21 +627,27 @@ KYC 上传
 
 
 
-## VerifyReq
 
+
+<a name="biss.api.v1.account.VerifyReq"></a>
+
+### VerifyReq
 验证码提交请求
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [string](#string) |  | 验证码 |
-| context | [VerifyContext](#VerifyContext) |  | 上下文 |
+| context | [VerifyContext](#biss.api.v1.account.VerifyContext) |  | 上下文 |
 
 
 
 
-## VipInfo
 
+
+<a name="biss.api.v1.account.VipInfo"></a>
+
+### VipInfo
 会员信息
 
 
@@ -736,14 +660,15 @@ KYC 上传
 | finish_date | [uint64](#uint64) |  | 结束日期(UTC timestamp in millisecond)(仅年月日有效) |
 
 
- <!-- end messages -->
 
-# 枚举类型
+
+
+ 
 
 
 <a name="biss.api.v1.account.KYCStatus"></a>
 
-## KYCStatus
+### KYCStatus
 
 
 | Name | Number | Description |
@@ -757,7 +682,7 @@ KYC 上传
 
 <a name="biss.api.v1.account.PasswdLevel"></a>
 
-## PasswdLevel
+### PasswdLevel
 
 
 | Name | Number | Description |
@@ -771,7 +696,7 @@ KYC 上传
 
 <a name="biss.api.v1.account.SecuLevel"></a>
 
-## SecuLevel
+### SecuLevel
 
 
 | Name | Number | Description |
@@ -785,7 +710,7 @@ KYC 上传
 
 <a name="biss.api.v1.account.VerifyScene"></a>
 
-## VerifyScene
+### VerifyScene
 验证场景
 
 | Name | Number | Description |
@@ -806,7 +731,7 @@ KYC 上传
 
 <a name="biss.api.v1.account.VerifyType"></a>
 
-## VerifyType
+### VerifyType
 验证类型
 
 | Name | Number | Description |
@@ -817,7 +742,62 @@ KYC 上传
 | VT_GA | 3 | Google |
 
 
- <!-- end enums -->
+ 
+
+ 
 
 
+<a name="biss.api.v1.account.Account"></a>
+
+### Account
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| Register | [RegisterReq](#biss.api.v1.account.RegisterReq) | [.biss.common.Empty](#biss.common.Empty) | =================================================== 注册 |
+| Challenge | [.biss.common.Empty](#biss.common.Empty) | [ChallengeResp](#biss.api.v1.account.ChallengeResp) | 登陆 Challenge |
+| Login | [LoginReq](#biss.api.v1.account.LoginReq) | [LoginResp](#biss.api.v1.account.LoginResp) | 登陆 |
+| Logout | [.biss.common.Empty](#biss.common.Empty) | [.biss.common.Empty](#biss.common.Empty) | 登出 |
+| ModifyPassword | [ModifyPasswordReq](#biss.api.v1.account.ModifyPasswordReq) | [ModifyPasswordResp](#biss.api.v1.account.ModifyPasswordResp) | ==================================================== 修改密码 |
+| ResetPassword | [ResetPasswordReq](#biss.api.v1.account.ResetPasswordReq) | [ResetPasswordResp](#biss.api.v1.account.ResetPasswordResp) | 重置密码 |
+| BindMobile | [BindMobileReq](#biss.api.v1.account.BindMobileReq) | [.biss.common.Empty](#biss.common.Empty) | ===================================================== 绑定手机 |
+| BindGA | [BindGAReq](#biss.api.v1.account.BindGAReq) | [.biss.common.Empty](#biss.common.Empty) | 绑定 Google 2-Step Auth |
+| KYCUpload | [KYCUploadReq](#biss.api.v1.account.KYCUploadReq) | [KYCUploadResp](#biss.api.v1.account.KYCUploadResp) | KYC 文件上传请求 |
+| KYCAudit | [KYCAuditReq](#biss.api.v1.account.KYCAuditReq) | [.biss.common.Empty](#biss.common.Empty) | KYC 审核请求 |
+| KYCStatus | [.biss.common.Empty](#biss.common.Empty) | [KYCStatusResp](#biss.api.v1.account.KYCStatusResp) | KYC 审核状态请求 |
+| FeeBissDeduction | [FeeBissDeductionReq](#biss.api.v1.account.FeeBissDeductionReq) | [.biss.common.Empty](#biss.common.Empty) | 手续费BISS抵扣 |
+| UserInfo | [.biss.common.Empty](#biss.common.Empty) | [UserInfoResp](#biss.api.v1.account.UserInfoResp) | 用户个人信息查询 |
+| IpLog | [ClientIpLogReq](#biss.api.v1.account.ClientIpLogReq) | [ClientIpLogResp](#biss.api.v1.account.ClientIpLogResp) | 最近登陆IP查询 |
+| SendSMSVerifyCode | [SendSMSVerifyCodeReq](#biss.api.v1.account.SendSMSVerifyCodeReq) | [SendVerifyCodeResp](#biss.api.v1.account.SendVerifyCodeResp) | ===================================================== 发送短信验证码到任意号码 |
+| SendUserSMSVerifyCode | [SendUserSMSVerifyCodeReq](#biss.api.v1.account.SendUserSMSVerifyCodeReq) | [SendVerifyCodeResp](#biss.api.v1.account.SendVerifyCodeResp) | 发送短信验证码到用户绑定号码 |
+| SendEmailVerifyCode | [SendEmailVerifyCodeReq](#biss.api.v1.account.SendEmailVerifyCodeReq) | [SendVerifyCodeResp](#biss.api.v1.account.SendVerifyCodeResp) | 发送邮件验证码到任意邮箱 |
+| SendUserEmailVerifyCode | [SendUserEmailVerifyCodeReq](#biss.api.v1.account.SendUserEmailVerifyCodeReq) | [SendVerifyCodeResp](#biss.api.v1.account.SendVerifyCodeResp) | 发送邮件验证码到用户绑定邮箱 |
+| SendLoginSMSVerifyCode | [SendLoginSMSVerifyCodeReq](#biss.api.v1.account.SendLoginSMSVerifyCodeReq) | [SendVerifyCodeResp](#biss.api.v1.account.SendVerifyCodeResp) | 发送登陆二次验证短信 |
+| SendPasswordResetEmailVerifyCode | [SendPasswordResetEmailVerifyCodeReq](#biss.api.v1.account.SendPasswordResetEmailVerifyCodeReq) | [SendVerifyCodeResp](#biss.api.v1.account.SendVerifyCodeResp) | 发送密码重置验证邮件 |
+| SendPasswordResetSMSVerifyCode | [SendPasswordResetSMSVerifyCodeReq](#biss.api.v1.account.SendPasswordResetSMSVerifyCodeReq) | [SendVerifyCodeResp](#biss.api.v1.account.SendVerifyCodeResp) | 发送密码重置二次验证短信 |
+| GetGASecret | [.biss.common.Empty](#biss.common.Empty) | [GetGASecretResp](#biss.api.v1.account.GetGASecretResp) | 获取 GA Secret |
+
+ 
+
+
+
+## Scalar Value Types
+
+| .proto Type | Notes | C++ Type | Java Type | Python Type |
+| ----------- | ----- | -------- | --------- | ----------- |
+| <a name="double" /> double |  | double | double | float |
+| <a name="float" /> float |  | float | float | float |
+| <a name="int32" /> int32 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int |
+| <a name="int64" /> int64 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long |
+| <a name="uint32" /> uint32 | Uses variable-length encoding. | uint32 | int | int/long |
+| <a name="uint64" /> uint64 | Uses variable-length encoding. | uint64 | long | int/long |
+| <a name="sint32" /> sint32 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int |
+| <a name="sint64" /> sint64 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long |
+| <a name="fixed32" /> fixed32 | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int |
+| <a name="fixed64" /> fixed64 | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long |
+| <a name="sfixed32" /> sfixed32 | Always four bytes. | int32 | int | int |
+| <a name="sfixed64" /> sfixed64 | Always eight bytes. | int64 | long | int/long |
+| <a name="bool" /> bool |  | bool | boolean | boolean |
+| <a name="string" /> string | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode |
+| <a name="bytes" /> bytes | May contain any arbitrary sequence of bytes. | string | ByteString | str |
 

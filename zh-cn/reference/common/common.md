@@ -1,15 +1,42 @@
+# Protocol Documentation
+<a name="top"></a>
+
+## Table of Contents
+
+- [proto/common/common.proto](#proto/common/common.proto)
+    - [Decimal](#biss.common.Decimal)
+    - [Empty](#biss.common.Empty)
+    - [ExchangeRate](#biss.common.ExchangeRate)
+    - [Fee](#biss.common.Fee)
+    - [PaginationReq](#biss.common.PaginationReq)
+    - [PaginationResp](#biss.common.PaginationResp)
+  
+    - [Country](#biss.common.Country)
+    - [Currency](#biss.common.Currency)
+    - [FeeMode](#biss.common.FeeMode)
+    - [Lang](#biss.common.Lang)
+    - [Platform](#biss.common.Platform)
+    - [SortDirection](#biss.common.SortDirection)
+    - [TimeZone](#biss.common.TimeZone)
+    - [VipLevel](#biss.common.VipLevel)
+  
+  
+  
+
+- [Scalar Value Types](#scalar-value-types)
 
 
 
- <!-- end services -->
+<a name="proto/common/common.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/common/common.proto
 
 
-# 数据对象
 
+<a name="biss.common.Decimal"></a>
 
-
-## Decimal
-
+### Decimal
 
 
 
@@ -22,15 +49,21 @@
 
 
 
-## Empty
+
+
+<a name="biss.common.Empty"></a>
+
+### Empty
 
 
 
 
 
 
-## ExchangeRate
 
+<a name="biss.common.ExchangeRate"></a>
+
+### ExchangeRate
 汇率
 
 
@@ -43,21 +76,27 @@
 
 
 
-## Fee
 
+
+<a name="biss.common.Fee"></a>
+
+### Fee
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mode | [FeeMode](#FeeMode) |  |  |
+| mode | [FeeMode](#biss.common.FeeMode) |  |  |
 | value | [string](#string) |  |  |
 
 
 
 
-## PaginationReq
 
+
+<a name="biss.common.PaginationReq"></a>
+
+### PaginationReq
 分页请求
 
 
@@ -69,8 +108,11 @@
 
 
 
-## PaginationResp
 
+
+<a name="biss.common.PaginationResp"></a>
+
+### PaginationResp
 分页应答
 
 
@@ -82,14 +124,15 @@
 | item_count | [uint32](#uint32) |  | 总条数 |
 
 
- <!-- end messages -->
 
-# 枚举类型
+
+
+ 
 
 
 <a name="biss.common.Country"></a>
 
-## Country
+### Country
 
 
 | Name | Number | Description |
@@ -104,7 +147,7 @@
 
 <a name="biss.common.Currency"></a>
 
-## Currency
+### Currency
 
 
 | Name | Number | Description |
@@ -118,7 +161,7 @@
 
 <a name="biss.common.FeeMode"></a>
 
-## FeeMode
+### FeeMode
 
 
 | Name | Number | Description |
@@ -131,7 +174,7 @@
 
 <a name="biss.common.Lang"></a>
 
-## Lang
+### Lang
 
 
 | Name | Number | Description |
@@ -144,7 +187,7 @@
 
 <a name="biss.common.Platform"></a>
 
-## Platform
+### Platform
 
 
 | Name | Number | Description |
@@ -161,7 +204,7 @@
 
 <a name="biss.common.SortDirection"></a>
 
-## SortDirection
+### SortDirection
 
 
 | Name | Number | Description |
@@ -174,7 +217,7 @@
 
 <a name="biss.common.TimeZone"></a>
 
-## TimeZone
+### TimeZone
 
 
 | Name | Number | Description |
@@ -185,7 +228,7 @@
 
 <a name="biss.common.VipLevel"></a>
 
-## VipLevel
+### VipLevel
 会员级别
 
 | Name | Number | Description |
@@ -200,7 +243,31 @@
 | VL_VIP_7 | 7 |  |
 
 
- <!-- end enums -->
+ 
+
+ 
+
+ 
 
 
+
+## Scalar Value Types
+
+| .proto Type | Notes | C++ Type | Java Type | Python Type |
+| ----------- | ----- | -------- | --------- | ----------- |
+| <a name="double" /> double |  | double | double | float |
+| <a name="float" /> float |  | float | float | float |
+| <a name="int32" /> int32 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int |
+| <a name="int64" /> int64 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long |
+| <a name="uint32" /> uint32 | Uses variable-length encoding. | uint32 | int | int/long |
+| <a name="uint64" /> uint64 | Uses variable-length encoding. | uint64 | long | int/long |
+| <a name="sint32" /> sint32 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int |
+| <a name="sint64" /> sint64 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long |
+| <a name="fixed32" /> fixed32 | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int |
+| <a name="fixed64" /> fixed64 | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long |
+| <a name="sfixed32" /> sfixed32 | Always four bytes. | int32 | int | int |
+| <a name="sfixed64" /> sfixed64 | Always eight bytes. | int64 | long | int/long |
+| <a name="bool" /> bool |  | bool | boolean | boolean |
+| <a name="string" /> string | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode |
+| <a name="bytes" /> bytes | May contain any arbitrary sequence of bytes. | string | ByteString | str |
 

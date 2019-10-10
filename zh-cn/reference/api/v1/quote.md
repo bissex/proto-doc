@@ -1,142 +1,52 @@
-
-
-
-
-# biss.api.v1.quote.Quote
-
-
-
-## RealTime
-
-请求实时行情
-    
-> `GRPC` RealTime([.biss.common.trade.Ticker](#.biss.common.trade.Ticker)) return [RealTimeUpdate](#RealTimeUpdate)
-
-
-
-
-
-
-> `HTTP` `GET` /v1/quote/{symbol}/{market}/realtime
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## BatchRealTime
-
-批量请求实时行情
-    
-> `GRPC` BatchRealTime([.biss.common.trade.Market](#.biss.common.trade.Market)) return [RealTimeUpdates](#RealTimeUpdates)
-
-
-
-
-
-
-> `HTTP` `GET` /v1/quote/batch/realtime/{market}
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## KLineHistory
-
-请求 K 线历史数据
-    
-> `GRPC` KLineHistory([KLineHistoryReq](#KLineHistoryReq)) return [KLineHistoryResp](#KLineHistoryResp)
-
-
-
-
-
-
-> `HTTP` `GET` /v1/quote/kline
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## TickHistory
-
-请求逐笔成交 (Tick) 历史数据
-    
-> `GRPC` TickHistory([TickHistoryReq](#TickHistoryReq)) return [TickHistoryResp](#TickHistoryResp)
-
-
-
-
-
-
-> `HTTP` `GET` /v1/quote/{ticker.symbol}/{ticker.market}/tick-history
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## Position
-
-请求盘口深度数据
-    
-> `GRPC` Position([PositionReq](#PositionReq)) return [PositionUpdate](#PositionUpdate)
-
-
-
-
-
-
-> `HTTP` `GET` /v1/quote/{ticker.symbol}/{ticker.market}/position
- <!-- end with -->
- <!-- end if -->
- <!-- end if -->
- <!-- end with -->
-
-## SubRealTime
-
-订阅实时行情
-    
-> `GRPC` SubRealTime([RealTimeReq](#RealTimeReq)) return [RealTimeUpdate](#RealTimeUpdate) `stream`
-
-
- <!-- end with -->
-
-## SubTick
-
-订阅逐笔 (Tick) 行情
-    
-> `GRPC` SubTick([SubTickReq](#SubTickReq)) return [TickUpdate](#TickUpdate) `stream`
-
-
- <!-- end with -->
-
-## SubKLine
-
-订阅 K 线行情
-    
-> `GRPC` SubKLine([KLineReq](#KLineReq)) return [KLineUpdate](#KLineUpdate) `stream`
-
-
- <!-- end with -->
-
-## SubPosition
-
-订阅盘口行情
-    
-> `GRPC` SubPosition([PositionReq](#PositionReq)) return [PositionUpdate](#PositionUpdate) `stream`
-
-
- <!-- end with -->
-
- <!-- end methods -->
- <!-- end services -->
-
-
-# 数据对象
-
-
-
-## FundRealTime
-
+# Protocol Documentation
+<a name="top"></a>
+
+## Table of Contents
+
+- [proto/api/v1/quote.proto](#proto/api/v1/quote.proto)
+    - [FundRealTime](#biss.api.v1.quote.FundRealTime)
+    - [FundRealTime.ETFFundRealTime](#biss.api.v1.quote.FundRealTime.ETFFundRealTime)
+    - [KLineData](#biss.api.v1.quote.KLineData)
+    - [KLineHistoryReq](#biss.api.v1.quote.KLineHistoryReq)
+    - [KLineHistoryResp](#biss.api.v1.quote.KLineHistoryResp)
+    - [KLineReq](#biss.api.v1.quote.KLineReq)
+    - [KLineUpdate](#biss.api.v1.quote.KLineUpdate)
+    - [PeroidData](#biss.api.v1.quote.PeroidData)
+    - [PositionData](#biss.api.v1.quote.PositionData)
+    - [PositionReq](#biss.api.v1.quote.PositionReq)
+    - [PositionUpdate](#biss.api.v1.quote.PositionUpdate)
+    - [PositionUpdateItem](#biss.api.v1.quote.PositionUpdateItem)
+    - [RealTimeReq](#biss.api.v1.quote.RealTimeReq)
+    - [RealTimeUpdate](#biss.api.v1.quote.RealTimeUpdate)
+    - [RealTimeUpdates](#biss.api.v1.quote.RealTimeUpdates)
+    - [SubTickReq](#biss.api.v1.quote.SubTickReq)
+    - [TickData](#biss.api.v1.quote.TickData)
+    - [TickHistoryReq](#biss.api.v1.quote.TickHistoryReq)
+    - [TickHistoryResp](#biss.api.v1.quote.TickHistoryResp)
+    - [TickUpdate](#biss.api.v1.quote.TickUpdate)
+    - [UsStockRealTime](#biss.api.v1.quote.UsStockRealTime)
+  
+    - [KLinePeroid](#biss.api.v1.quote.KLinePeroid)
+    - [UpdateMode](#biss.api.v1.quote.UpdateMode)
+  
+  
+    - [Quote](#biss.api.v1.quote.Quote)
+  
+
+- [Scalar Value Types](#scalar-value-types)
+
+
+
+<a name="proto/api/v1/quote.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/api/v1/quote.proto
+
+
+
+<a name="biss.api.v1.quote.FundRealTime"></a>
+
+### FundRealTime
 基金行情
 
 
@@ -144,13 +54,16 @@
 | ----- | ---- | ----- | ----------- |
 | nav | [string](#string) |  | 基金净值 |
 | iopv | [string](#string) |  | 基金净值预估 |
-| etf | [FundRealTime.ETFFundRealTime](#FundRealTime.ETFFundRealTime) |  | ETF 基金参数 |
+| etf | [FundRealTime.ETFFundRealTime](#biss.api.v1.quote.FundRealTime.ETFFundRealTime) |  | ETF 基金参数 |
 
 
 
 
-## FundRealTime.ETFFundRealTime
 
+
+<a name="biss.api.v1.quote.FundRealTime.ETFFundRealTime"></a>
+
+### FundRealTime.ETFFundRealTime
 
 
 
@@ -163,28 +76,34 @@
 
 
 
-## KLineData
 
+
+<a name="biss.api.v1.quote.KLineData"></a>
+
+### KLineData
 单条 K 线数据
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | time | [uint64](#uint64) |  | K 线周期开始时间，纳秒精度 |
-| data | [PeroidData](#PeroidData) |  | K 线数据 |
+| data | [PeroidData](#biss.api.v1.quote.PeroidData) |  | K 线数据 |
 
 
 
 
-## KLineHistoryReq
 
+
+<a name="biss.api.v1.quote.KLineHistoryReq"></a>
+
+### KLineHistoryReq
 K 线历史数据请求
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  | 标的 |
-| peroid | [KLinePeroid](#KLinePeroid) |  | 周期 |
+| peroid | [KLinePeroid](#biss.api.v1.quote.KLinePeroid) |  | 周期 |
 | offset | [uint64](#uint64) |  | 读取起始位置，0 表示最新位置 |
 | count | [uint32](#uint32) |  | 读取记录数量 |
 | data_direction | [biss.common.SortDirection](#biss.common.SortDirection) |  | 数据读取方向, 默认倒序 |
@@ -193,53 +112,65 @@ K 线历史数据请求
 
 
 
-## KLineHistoryResp
 
+
+<a name="biss.api.v1.quote.KLineHistoryResp"></a>
+
+### KLineHistoryResp
 K 线历史数据请求应答
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  | 标的 |
-| peroid | [KLinePeroid](#KLinePeroid) |  | 周期 |
+| peroid | [KLinePeroid](#biss.api.v1.quote.KLinePeroid) |  | 周期 |
 | offset | [uint64](#uint64) |  | 读取起始位置，0 表示最新位置 |
 | count | [uint32](#uint32) |  | 读取记录数量 |
 | data_direction | [biss.common.SortDirection](#biss.common.SortDirection) |  | 数据读取方向, 默认倒序 |
 | sort_direction | [biss.common.SortDirection](#biss.common.SortDirection) |  | 结果排序方向，默认增序 |
-| lines | [KLineData](#KLineData) | repeated | 历史 K 线数据列表 |
+| lines | [KLineData](#biss.api.v1.quote.KLineData) | repeated | 历史 K 线数据列表 |
 
 
 
 
-## KLineReq
 
+
+<a name="biss.api.v1.quote.KLineReq"></a>
+
+### KLineReq
 K 线数据订阅请求
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  | 标的 |
-| peroid | [KLinePeroid](#KLinePeroid) |  | K 线数据 |
+| peroid | [KLinePeroid](#biss.api.v1.quote.KLinePeroid) |  | K 线数据 |
 
 
 
 
-## KLineUpdate
 
+
+<a name="biss.api.v1.quote.KLineUpdate"></a>
+
+### KLineUpdate
 K 线数据更新
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  | 标的 |
-| peroid | [KLinePeroid](#KLinePeroid) |  | K 线周期 |
-| line | [KLineData](#KLineData) |  | K 线数据 |
+| peroid | [KLinePeroid](#biss.api.v1.quote.KLinePeroid) |  | K 线周期 |
+| line | [KLineData](#biss.api.v1.quote.KLineData) |  | K 线数据 |
 
 
 
 
-## PeroidData
 
+
+<a name="biss.api.v1.quote.PeroidData"></a>
+
+### PeroidData
 行情周期性数据，如 24 小时周期数据、2 小时涨停板周期数据、K 线数据
 
 
@@ -262,8 +193,11 @@ K 线数据更新
 
 
 
-## PositionData
 
+
+<a name="biss.api.v1.quote.PositionData"></a>
+
+### PositionData
 盘口数据
 
 
@@ -278,8 +212,11 @@ K 线数据更新
 
 
 
-## PositionReq
 
+
+<a name="biss.api.v1.quote.PositionReq"></a>
+
+### PositionReq
 盘口深度行情数据请求
 
 
@@ -291,8 +228,11 @@ K 线数据更新
 
 
 
-## PositionUpdate
 
+
+<a name="biss.api.v1.quote.PositionUpdate"></a>
+
+### PositionUpdate
 盘口数据更新请求应答
 
 
@@ -300,27 +240,33 @@ K 线数据更新
 | ----- | ---- | ----- | ----------- |
 | ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  | 标的 |
 | precision | [string](#string) |  | 盘口合并深度 |
-| items | [PositionUpdateItem](#PositionUpdateItem) | repeated | 数据列表 |
+| items | [PositionUpdateItem](#biss.api.v1.quote.PositionUpdateItem) | repeated | 数据列表 |
 
 
 
 
-## PositionUpdateItem
 
+
+<a name="biss.api.v1.quote.PositionUpdateItem"></a>
+
+### PositionUpdateItem
 单条盘口数据更新
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| mode | [UpdateMode](#UpdateMode) |  | 更新模式 |
-| bids | [PositionData](#PositionData) | repeated | 买单更新列表 |
-| asks | [PositionData](#PositionData) | repeated | 卖单更新列表 |
+| mode | [UpdateMode](#biss.api.v1.quote.UpdateMode) |  | 更新模式 |
+| bids | [PositionData](#biss.api.v1.quote.PositionData) | repeated | 买单更新列表 |
+| asks | [PositionData](#biss.api.v1.quote.PositionData) | repeated | 卖单更新列表 |
 
 
 
 
-## RealTimeReq
 
+
+<a name="biss.api.v1.quote.RealTimeReq"></a>
+
+### RealTimeReq
 实时行情请求
 
 
@@ -331,8 +277,11 @@ K 线数据更新
 
 
 
-## RealTimeUpdate
 
+
+<a name="biss.api.v1.quote.RealTimeUpdate"></a>
+
+### RealTimeUpdate
 实时行情更新数据
 
 
@@ -342,34 +291,40 @@ K 线数据更新
 | price | [string](#string) |  | biss.common.trade.TickerInfo info = 2;
 
 现价 |
-| h24 | [PeroidData](#PeroidData) |  | 24 小时周期数据 |
+| h24 | [PeroidData](#biss.api.v1.quote.PeroidData) |  | 24 小时周期数据 |
 | tick_time | [uint64](#uint64) |  | 最新的tick的时间 |
 | quote_time | [uint64](#uint64) |  | tick时间对应的行情服务器的时间 |
 | cirulating_supply | [string](#string) |  | 当前流通量 |
 | max_supply | [string](#string) |  | 总发行量 |
-| usstock | [UsStockRealTime](#UsStockRealTime) |  | 美股周期数据 |
-| trade_peroid | [PeroidData](#PeroidData) |  | 周期数据 |
+| usstock | [UsStockRealTime](#biss.api.v1.quote.UsStockRealTime) |  | 美股周期数据 |
+| trade_peroid | [PeroidData](#biss.api.v1.quote.PeroidData) |  | 周期数据 |
 | category | [biss.common.trade.Category](#biss.common.trade.Category) |  | 类型 |
 | sub_category | [biss.common.trade.SubCategory](#biss.common.trade.SubCategory) |  | 类型 |
-| fund | [FundRealTime](#FundRealTime) |  | 基金行情 |
+| fund | [FundRealTime](#biss.api.v1.quote.FundRealTime) |  | 基金行情 |
 
 
 
 
-## RealTimeUpdates
 
+
+<a name="biss.api.v1.quote.RealTimeUpdates"></a>
+
+### RealTimeUpdates
 实时行情更新数据列表，即实时行情请求应答
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| updates | [RealTimeUpdate](#RealTimeUpdate) | repeated | 数据列表 |
+| updates | [RealTimeUpdate](#biss.api.v1.quote.RealTimeUpdate) | repeated | 数据列表 |
 
 
 
 
-## SubTickReq
 
+
+<a name="biss.api.v1.quote.SubTickReq"></a>
+
+### SubTickReq
 成交推送订阅请求
 
 
@@ -381,8 +336,11 @@ K 线数据更新
 
 
 
-## TickData
 
+
+<a name="biss.api.v1.quote.TickData"></a>
+
+### TickData
 单笔成交 (Tick) 数据
 
 
@@ -402,8 +360,11 @@ K 线数据更新
 
 
 
-## TickHistoryReq
 
+
+<a name="biss.api.v1.quote.TickHistoryReq"></a>
+
+### TickHistoryReq
 历史逐笔成交数据请求
 
 
@@ -416,8 +377,11 @@ K 线数据更新
 
 
 
-## TickHistoryResp
 
+
+<a name="biss.api.v1.quote.TickHistoryResp"></a>
+
+### TickHistoryResp
 历史逐笔成交数据请求应答
 
 
@@ -426,32 +390,38 @@ K 线数据更新
 | ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  | 标的 |
 | start | [uint64](#uint64) |  | 其实成交编号 |
 | count | [uint32](#uint32) |  | 数量 |
-| ticks | [TickData](#TickData) | repeated | 成交数据列表 |
+| ticks | [TickData](#biss.api.v1.quote.TickData) | repeated | 成交数据列表 |
 
 
 
 
-## TickUpdate
 
+
+<a name="biss.api.v1.quote.TickUpdate"></a>
+
+### TickUpdate
 逐笔成交数据更新
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  | 标的 |
-| tick | [TickData](#TickData) |  | 数据 |
+| tick | [TickData](#biss.api.v1.quote.TickData) |  | 数据 |
 
 
 
 
-## UsStockRealTime
 
+
+<a name="biss.api.v1.quote.UsStockRealTime"></a>
+
+### UsStockRealTime
 美股实时行情周期性数据
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| base | [PeroidData](#PeroidData) |  |  |
+| base | [PeroidData](#biss.api.v1.quote.PeroidData) |  |  |
 | high52 | [string](#string) |  |  |
 | low52 | [string](#string) |  |  |
 | mktcap | [string](#string) |  | 市值 |
@@ -463,14 +433,15 @@ K 线数据更新
 | open_min | [uint32](#uint32) |  | 距离开盘时间（分钟） |
 
 
- <!-- end messages -->
 
-# 枚举类型
+
+
+ 
 
 
 <a name="biss.api.v1.quote.KLinePeroid"></a>
 
-## KLinePeroid
+### KLinePeroid
 K 线周期
 
 | Name | Number | Description |
@@ -495,7 +466,7 @@ K 线周期
 
 <a name="biss.api.v1.quote.UpdateMode"></a>
 
-## UpdateMode
+### UpdateMode
 更新模式
 
 | Name | Number | Description |
@@ -507,7 +478,49 @@ K 线周期
 | UM_DELETE | 4 | 删除 |
 
 
- <!-- end enums -->
+ 
+
+ 
 
 
+<a name="biss.api.v1.quote.Quote"></a>
+
+### Quote
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| RealTime | [.biss.common.trade.Ticker](#biss.common.trade.Ticker) | [RealTimeUpdate](#biss.api.v1.quote.RealTimeUpdate) | 请求实时行情 |
+| BatchRealTime | [.biss.common.trade.Market](#biss.common.trade.Market) | [RealTimeUpdates](#biss.api.v1.quote.RealTimeUpdates) | 批量请求实时行情 |
+| KLineHistory | [KLineHistoryReq](#biss.api.v1.quote.KLineHistoryReq) | [KLineHistoryResp](#biss.api.v1.quote.KLineHistoryResp) | 请求 K 线历史数据 |
+| TickHistory | [TickHistoryReq](#biss.api.v1.quote.TickHistoryReq) | [TickHistoryResp](#biss.api.v1.quote.TickHistoryResp) | 请求逐笔成交 (Tick) 历史数据 |
+| Position | [PositionReq](#biss.api.v1.quote.PositionReq) | [PositionUpdate](#biss.api.v1.quote.PositionUpdate) | 请求盘口深度数据 |
+| SubRealTime | [RealTimeReq](#biss.api.v1.quote.RealTimeReq) | [RealTimeUpdate](#biss.api.v1.quote.RealTimeUpdate) stream | 订阅实时行情 |
+| SubTick | [SubTickReq](#biss.api.v1.quote.SubTickReq) | [TickUpdate](#biss.api.v1.quote.TickUpdate) stream | 订阅逐笔 (Tick) 行情 |
+| SubKLine | [KLineReq](#biss.api.v1.quote.KLineReq) | [KLineUpdate](#biss.api.v1.quote.KLineUpdate) stream | 订阅 K 线行情 |
+| SubPosition | [PositionReq](#biss.api.v1.quote.PositionReq) | [PositionUpdate](#biss.api.v1.quote.PositionUpdate) stream | 订阅盘口行情 |
+
+ 
+
+
+
+## Scalar Value Types
+
+| .proto Type | Notes | C++ Type | Java Type | Python Type |
+| ----------- | ----- | -------- | --------- | ----------- |
+| <a name="double" /> double |  | double | double | float |
+| <a name="float" /> float |  | float | float | float |
+| <a name="int32" /> int32 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int |
+| <a name="int64" /> int64 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long |
+| <a name="uint32" /> uint32 | Uses variable-length encoding. | uint32 | int | int/long |
+| <a name="uint64" /> uint64 | Uses variable-length encoding. | uint64 | long | int/long |
+| <a name="sint32" /> sint32 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int |
+| <a name="sint64" /> sint64 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long |
+| <a name="fixed32" /> fixed32 | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int |
+| <a name="fixed64" /> fixed64 | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long |
+| <a name="sfixed32" /> sfixed32 | Always four bytes. | int32 | int | int |
+| <a name="sfixed64" /> sfixed64 | Always eight bytes. | int64 | long | int/long |
+| <a name="bool" /> bool |  | bool | boolean | boolean |
+| <a name="string" /> string | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode |
+| <a name="bytes" /> bytes | May contain any arbitrary sequence of bytes. | string | ByteString | str |
 
