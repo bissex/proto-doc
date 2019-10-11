@@ -11,6 +11,7 @@
     - [PaginationReq](#biss.common.PaginationReq)
     - [PaginationResp](#biss.common.PaginationResp)
   
+    - [AccountType](#biss.common.AccountType)
     - [Country](#biss.common.Country)
     - [Currency](#biss.common.Currency)
     - [FeeMode](#biss.common.FeeMode)
@@ -128,6 +129,19 @@
 
 
  
+
+
+<a name="biss.common.AccountType"></a>
+
+### AccountType
+账户类型
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| AT_PARENT | 0 | 母账户 |
+| AT_US_STOCK | 1 | 美股账户 |
+| AT_CONTRACT | 2 | 合约账户 |
+
 
 
 <a name="biss.common.Country"></a>

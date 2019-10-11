@@ -21,6 +21,7 @@
     - [LoginResp](#biss.api.v1.account.LoginResp)
     - [ModifyPasswordReq](#biss.api.v1.account.ModifyPasswordReq)
     - [ModifyPasswordResp](#biss.api.v1.account.ModifyPasswordResp)
+    - [OpenSubAccountReq](#biss.api.v1.account.OpenSubAccountReq)
     - [PointsInfo](#biss.api.v1.account.PointsInfo)
     - [RegisterReq](#biss.api.v1.account.RegisterReq)
     - [ResetPasswordReq](#biss.api.v1.account.ResetPasswordReq)
@@ -351,6 +352,21 @@ KYC 上传
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | tfa | [VerifyType](#biss.api.v1.account.VerifyType) | repeated | 需要两部验证类型 |
+
+
+
+
+
+
+<a name="biss.api.v1.account.OpenSubAccountReq"></a>
+
+### OpenSubAccountReq
+开通子账户请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [biss.common.AccountType](#biss.common.AccountType) |  | 开通子账户类型 |
 
 
 
@@ -776,6 +792,7 @@ KYC 上传
 | SendPasswordResetEmailVerifyCode | [SendPasswordResetEmailVerifyCodeReq](#biss.api.v1.account.SendPasswordResetEmailVerifyCodeReq) | [SendVerifyCodeResp](#biss.api.v1.account.SendVerifyCodeResp) | 发送密码重置验证邮件 |
 | SendPasswordResetSMSVerifyCode | [SendPasswordResetSMSVerifyCodeReq](#biss.api.v1.account.SendPasswordResetSMSVerifyCodeReq) | [SendVerifyCodeResp](#biss.api.v1.account.SendVerifyCodeResp) | 发送密码重置二次验证短信 |
 | GetGASecret | [.biss.common.Empty](#biss.common.Empty) | [GetGASecretResp](#biss.api.v1.account.GetGASecretResp) | 获取 GA Secret |
+| OpenSubAccount | [OpenSubAccountReq](#biss.api.v1.account.OpenSubAccountReq) | [.biss.common.Empty](#biss.common.Empty) | 开通子账户 |
 
  
 

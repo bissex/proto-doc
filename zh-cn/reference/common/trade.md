@@ -104,6 +104,7 @@
 | COIN | 0 | 数字货币 |
 | STOCK | 1 | 股票 |
 | FUND | 2 | 基金 |
+| CONTRACT | 3 | 合约 |
 
 
 
@@ -174,6 +175,7 @@
 | SC_NONE | 0 |  |
 | SC_US_STOCK | 1 | 美股 |
 | SC_CRYPTO_ETF | 2 | 数字货币 ETF 基金 |
+| SC_PERPETUAL_CONTRACT | 3 | 永续合约 |
 
 
 

@@ -7,6 +7,7 @@
     - [AddWithdrawAddressReq](#biss.api.v1.asset.AddWithdrawAddressReq)
     - [Address](#biss.api.v1.asset.Address)
     - [Asset](#biss.api.v1.asset.Asset)
+    - [AssetsReq](#biss.api.v1.asset.AssetsReq)
     - [AssetsResp](#biss.api.v1.asset.AssetsResp)
     - [CancelWithdrawReq](#biss.api.v1.asset.CancelWithdrawReq)
     - [DeleteWithdrawAddressReq](#biss.api.v1.asset.DeleteWithdrawAddressReq)
@@ -20,6 +21,7 @@
     - [RewardHistoryReq](#biss.api.v1.asset.RewardHistoryReq)
     - [RewardHistoryResp](#biss.api.v1.asset.RewardHistoryResp)
     - [TickerAssetResp](#biss.api.v1.asset.TickerAssetResp)
+    - [TransferReq](#biss.api.v1.asset.TransferReq)
     - [WithdrawAddressesReq](#biss.api.v1.asset.WithdrawAddressesReq)
     - [WithdrawAddressesResp](#biss.api.v1.asset.WithdrawAddressesResp)
     - [WithdrawCalculateReq](#biss.api.v1.asset.WithdrawCalculateReq)
@@ -98,6 +100,21 @@
 | btc_value | [string](#string) |  | BTC 估值 |
 | withdraw_enable | [bool](#bool) |  | 允许提现 |
 | deposit_enable | [bool](#bool) |  | 允许充值 |
+
+
+
+
+
+
+<a name="biss.api.v1.asset.AssetsReq"></a>
+
+### AssetsReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [biss.common.AccountType](#biss.common.AccountType) |  | 账户类型 |
 
 
 
@@ -334,6 +351,24 @@ symbol 可选，symbol 不存在则返回全部历史
 
 
 
+<a name="biss.api.v1.asset.TransferReq"></a>
+
+### TransferReq
+资产账户划转请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| from | [biss.common.AccountType](#biss.common.AccountType) |  | 转出账户 |
+| to | [biss.common.AccountType](#biss.common.AccountType) |  | 转入账户 |
+| symbol | [string](#string) |  | 资产类型 |
+| qty | [string](#string) |  | 数量 |
+
+
+
+
+
+
 <a name="biss.api.v1.asset.WithdrawAddressesReq"></a>
 
 ### WithdrawAddressesReq
@@ -560,7 +595,7 @@ symbol 可选，symbol 不存在则返回全部历史
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Assets | [.biss.common.Empty](#biss.common.Empty) | [AssetsResp](#biss.api.v1.asset.AssetsResp) | 资产列表 |
+| Assets | [AssetsReq](#biss.api.v1.asset.AssetsReq) | [AssetsResp](#biss.api.v1.asset.AssetsResp) | 资产列表 |
 | TickerAsset | [.biss.common.trade.Ticker](#biss.common.trade.Ticker) | [TickerAssetResp](#biss.api.v1.asset.TickerAssetResp) | 资产列表 |
 | Deposit | [DepositReq](#biss.api.v1.asset.DepositReq) | [DepositResp](#biss.api.v1.asset.DepositResp) | 充值信息 |
 | DepositHistory | [DepositHistoryReq](#biss.api.v1.asset.DepositHistoryReq) | [DepositHistoryResp](#biss.api.v1.asset.DepositHistoryResp) | 充值记录 |
@@ -574,6 +609,7 @@ symbol 可选，symbol 不存在则返回全部历史
 | GetSymbolList | [.biss.common.Empty](#biss.common.Empty) | [.biss.api.v1.system.SymbolList](#biss.api.v1.system.SymbolList) | 获取支持的币种 |
 | GetTickerList | [.biss.common.Empty](#biss.common.Empty) | [.biss.api.v1.system.TickerList](#biss.api.v1.system.TickerList) | 获取支持的币种 |
 | RewardHistory | [RewardHistoryReq](#biss.api.v1.asset.RewardHistoryReq) | [RewardHistoryResp](#biss.api.v1.asset.RewardHistoryResp) | 获取奖励历史 |
+| Transfer | [TransferReq](#biss.api.v1.asset.TransferReq) | [.biss.common.Empty](#biss.common.Empty) | 资产账户划转 |
 
  
 

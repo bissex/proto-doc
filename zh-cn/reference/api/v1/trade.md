@@ -13,10 +13,14 @@
     - [BatchEntrustResp](#biss.api.v1.trade.BatchEntrustResp)
     - [CancelAllReq](#biss.api.v1.trade.CancelAllReq)
     - [CancelReq](#biss.api.v1.trade.CancelReq)
+    - [EntrustCondition](#biss.api.v1.trade.EntrustCondition)
     - [EntrustInfoReq](#biss.api.v1.trade.EntrustInfoReq)
     - [EntrustInfoResp](#biss.api.v1.trade.EntrustInfoResp)
     - [EntrustReq](#biss.api.v1.trade.EntrustReq)
     - [EntrustResp](#biss.api.v1.trade.EntrustResp)
+    - [LeverageInfo](#biss.api.v1.trade.LeverageInfo)
+    - [LeverageReq](#biss.api.v1.trade.LeverageReq)
+    - [LeverageResp](#biss.api.v1.trade.LeverageResp)
     - [Order](#biss.api.v1.trade.Order)
     - [OrderListReq](#biss.api.v1.trade.OrderListReq)
     - [OrderListResp](#biss.api.v1.trade.OrderListResp)
@@ -31,6 +35,7 @@
     - [VCMInfo](#biss.api.v1.trade.VCMInfo)
     - [VCMStatus](#biss.api.v1.trade.VCMStatus)
   
+    - [EntrustType](#biss.api.v1.trade.EntrustType)
     - [OrderListSortType](#biss.api.v1.trade.OrderListSortType)
     - [PositionListSortType](#biss.api.v1.trade.PositionListSortType)
   
@@ -196,6 +201,16 @@
 
 
 
+<a name="biss.api.v1.trade.EntrustCondition"></a>
+
+### EntrustCondition
+条件委托条件
+
+
+
+
+
+
 <a name="biss.api.v1.trade.EntrustInfoReq"></a>
 
 ### EntrustInfoReq
@@ -240,6 +255,7 @@
 | side | [biss.common.trade.TradeSide](#biss.common.trade.TradeSide) |  |  |
 | price | [string](#string) |  |  |
 | qty | [string](#string) |  |  |
+| condition | [EntrustCondition](#biss.api.v1.trade.EntrustCondition) |  | 条件委托 |
 
 
 
@@ -257,6 +273,52 @@
 | oid | [uint64](#uint64) |  | 订单编号 |
 | code | [uint64](#uint64) |  | 错误码，批量委托使用 |
 | failed | [bool](#bool) |  | 委托失败 |
+
+
+
+
+
+
+<a name="biss.api.v1.trade.LeverageInfo"></a>
+
+### LeverageInfo
+杠杆信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  |  |
+| leverage | [uint32](#uint32) |  |  |
+
+
+
+
+
+
+<a name="biss.api.v1.trade.LeverageReq"></a>
+
+### LeverageReq
+获取杠杆系数请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  |  |
+
+
+
+
+
+
+<a name="biss.api.v1.trade.LeverageResp"></a>
+
+### LeverageResp
+获取杠杆系数应答
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| leverages | [LeverageInfo](#biss.api.v1.trade.LeverageInfo) | repeated |  |
 
 
 
@@ -288,6 +350,7 @@
 | fillStatus | [biss.common.trade.OrderFillStatus](#biss.common.trade.OrderFillStatus) |  | 成交状态 |
 | fill_ratio | [string](#string) |  |  |
 | fees | [TradeFee](#biss.api.v1.trade.TradeFee) | repeated | 手续费明细 |
+| condition | [EntrustCondition](#biss.api.v1.trade.EntrustCondition) |  | 条件委托 |
 
 
 
@@ -308,6 +371,7 @@
 | sort_type | [OrderListSortType](#biss.api.v1.trade.OrderListSortType) |  |  |
 | order_list_type | [biss.common.trade.OrderListType](#biss.common.trade.OrderListType) |  |  |
 | ticker | [biss.common.trade.Ticker](#biss.common.trade.Ticker) |  |  |
+| entrust_type | [EntrustType](#biss.api.v1.trade.EntrustType) |  |  |
 
 
 
@@ -365,6 +429,7 @@
 | page | [uint32](#uint32) |  |  |
 | sort_direction | [biss.common.SortDirection](#biss.common.SortDirection) |  |  |
 | sort_type | [PositionListSortType](#biss.api.v1.trade.PositionListSortType) |  |  |
+| type | [biss.common.AccountType](#biss.common.AccountType) |  | 账户类型 |
 
 
 
@@ -527,6 +592,18 @@ Volatility Control Mechanism Infomation
  
 
 
+<a name="biss.api.v1.trade.EntrustType"></a>
+
+### EntrustType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ET_DEFAULT | 0 | 普通委托 |
+| ET_CONDITION | 1 | 条件委托 |
+
+
+
 <a name="biss.api.v1.trade.OrderListSortType"></a>
 
 ### OrderListSortType
@@ -589,6 +666,8 @@ Volatility Control Mechanism Infomation
 | OrderHistoryList | [OrderListReq](#biss.api.v1.trade.OrderListReq) | [OrderListResp](#biss.api.v1.trade.OrderListResp) | 历史订单记录 |
 | PositionList | [PositionListReq](#biss.api.v1.trade.PositionListReq) | [PositionListResp](#biss.api.v1.trade.PositionListResp) | 持仓列表 |
 | PositionBrief | [.biss.common.Empty](#biss.common.Empty) | [PositionBriefResp](#biss.api.v1.trade.PositionBriefResp) stream | 持仓状态 |
+| Leverage | [LeverageReq](#biss.api.v1.trade.LeverageReq) | [LeverageResp](#biss.api.v1.trade.LeverageResp) | 获取杠杆系数 |
+| SaveLeverage | [LeverageInfo](#biss.api.v1.trade.LeverageInfo) | [.biss.common.Empty](#biss.common.Empty) | 修改杠杆系数 |
 
  
 
