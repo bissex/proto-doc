@@ -8,8 +8,10 @@
     - [KLineReq](#biss.api.v1.push.KLineReq)
     - [OpenAsyncReq](#biss.api.v1.push.OpenAsyncReq)
     - [PositionReq](#biss.api.v1.push.PositionReq)
+    - [Pub](#biss.api.v1.push.Pub)
     - [PushMessage](#biss.api.v1.push.PushMessage)
     - [RealTimeReq](#biss.api.v1.push.RealTimeReq)
+    - [Sub](#biss.api.v1.push.Sub)
     - [SubTickReq](#biss.api.v1.push.SubTickReq)
   
   
@@ -87,6 +89,21 @@
 
 
 
+<a name="biss.api.v1.push.Pub"></a>
+
+### Pub
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mesg | [google.protobuf.Any](#google.protobuf.Any) |  |  |
+
+
+
+
+
+
 <a name="biss.api.v1.push.PushMessage"></a>
 
 ### PushMessage
@@ -116,6 +133,21 @@
 | ----- | ---- | ----- | ----------- |
 | sub_uuid | [string](#string) |  |  |
 | tickers | [biss.common.trade.Ticker](#biss.common.trade.Ticker) | repeated | 请求的ticker列表，包含请求单个ticker |
+
+
+
+
+
+
+<a name="biss.api.v1.push.Sub"></a>
+
+### Sub
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| topic | [string](#string) |  |  |
 
 
 
@@ -153,6 +185,7 @@
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | OpenAsync | [OpenAsyncReq](#biss.api.v1.push.OpenAsyncReq) | [PushMessage](#biss.api.v1.push.PushMessage) stream |  |
+| Open | [Sub](#biss.api.v1.push.Sub) stream | [Pub](#biss.api.v1.push.Pub) stream |  |
 | SubRealTime | [RealTimeReq](#biss.api.v1.push.RealTimeReq) | [.biss.common.Empty](#biss.common.Empty) | ============= 订阅行情 订阅实时行情 |
 | UnsubRealTime | [RealTimeReq](#biss.api.v1.push.RealTimeReq) | [.biss.common.Empty](#biss.common.Empty) |  |
 | SubTick | [SubTickReq](#biss.api.v1.push.SubTickReq) | [.biss.common.Empty](#biss.common.Empty) | 逐笔行情 |
