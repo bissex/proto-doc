@@ -603,6 +603,7 @@ KYC 上传
 | user_config_info | [UserConfigInfo](#biss.api.v1.account.UserConfigInfo) |  | 用户配置信息 |
 | vip_info | [VipInfo](#biss.api.v1.account.VipInfo) |  | 会员信息 |
 | points_info | [PointsInfo](#biss.api.v1.account.PointsInfo) |  | 积分信息 |
+| contract_account | [bool](#bool) |  | 是否已开通合约账户 |
 
 
 
