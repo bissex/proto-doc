@@ -7,6 +7,12 @@
     - [AddWithdrawAddressReq](#biss.api.v1.asset.AddWithdrawAddressReq)
     - [Address](#biss.api.v1.asset.Address)
     - [Asset](#biss.api.v1.asset.Asset)
+    - [AssetsContract](#biss.api.v1.asset.AssetsContract)
+    - [AssetsItem](#biss.api.v1.asset.AssetsItem)
+    - [AssetsRecord](#biss.api.v1.asset.AssetsRecord)
+    - [AssetsRecordFilter](#biss.api.v1.asset.AssetsRecordFilter)
+    - [AssetsRecordItem](#biss.api.v1.asset.AssetsRecordItem)
+    - [AssetsRecordReq](#biss.api.v1.asset.AssetsRecordReq)
     - [AssetsReq](#biss.api.v1.asset.AssetsReq)
     - [AssetsResp](#biss.api.v1.asset.AssetsResp)
     - [CancelWithdrawReq](#biss.api.v1.asset.CancelWithdrawReq)
@@ -20,6 +26,10 @@
     - [Reward](#biss.api.v1.asset.Reward)
     - [RewardHistoryReq](#biss.api.v1.asset.RewardHistoryReq)
     - [RewardHistoryResp](#biss.api.v1.asset.RewardHistoryResp)
+    - [RiskLimitList](#biss.api.v1.asset.RiskLimitList)
+    - [RiskLimitListItem](#biss.api.v1.asset.RiskLimitListItem)
+    - [RiskLimitListReq](#biss.api.v1.asset.RiskLimitListReq)
+    - [RiskLimitReq](#biss.api.v1.asset.RiskLimitReq)
     - [TickerAssetResp](#biss.api.v1.asset.TickerAssetResp)
     - [TransferReq](#biss.api.v1.asset.TransferReq)
     - [WithdrawAddressesReq](#biss.api.v1.asset.WithdrawAddressesReq)
@@ -32,6 +42,7 @@
     - [WithdrawReq](#biss.api.v1.asset.WithdrawReq)
     - [WithdrawResp](#biss.api.v1.asset.WithdrawResp)
   
+    - [AssetsRecordType](#biss.api.v1.asset.AssetsRecordType)
     - [DepositStatus](#biss.api.v1.asset.DepositStatus)
     - [RewardStatus](#biss.api.v1.asset.RewardStatus)
     - [WithdrawStatus](#biss.api.v1.asset.WithdrawStatus)
@@ -106,6 +117,113 @@
 
 
 
+<a name="biss.api.v1.asset.AssetsContract"></a>
+
+### AssetsContract
+合约资产
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| symbol | [string](#string) |  | 标的 |
+| total_balance | [AssetsItem](#biss.api.v1.asset.AssetsItem) |  | 总额 |
+| available_margin | [AssetsItem](#biss.api.v1.asset.AssetsItem) |  | 可用保证金 |
+| used_margin | [AssetsItem](#biss.api.v1.asset.AssetsItem) |  | 已用保证金 |
+| unrealized_pnl | [AssetsItem](#biss.api.v1.asset.AssetsItem) |  | 未实现盈亏 |
+| risk_limit_id | [uint32](#uint32) |  | 风险限额id |
+| risk_limit | [string](#string) |  | 风险限额 |
+
+
+
+
+
+
+<a name="biss.api.v1.asset.AssetsItem"></a>
+
+### AssetsItem
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| symbol | [string](#string) |  | 标的 |
+| qty | [string](#string) |  | 数量 |
+| legal | [LegalValue](#biss.api.v1.asset.LegalValue) |  | 法币估值 |
+
+
+
+
+
+
+<a name="biss.api.v1.asset.AssetsRecord"></a>
+
+### AssetsRecord
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| pagination | [biss.common.PaginationResp](#biss.common.PaginationResp) |  | 分页信息 |
+| items | [AssetsRecordItem](#biss.api.v1.asset.AssetsRecordItem) | repeated |  |
+
+
+
+
+
+
+<a name="biss.api.v1.asset.AssetsRecordFilter"></a>
+
+### AssetsRecordFilter
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| symbol | [string](#string) |  | 标的 |
+| type | [AssetsRecordType](#biss.api.v1.asset.AssetsRecordType) |  | 类型 |
+
+
+
+
+
+
+<a name="biss.api.v1.asset.AssetsRecordItem"></a>
+
+### AssetsRecordItem
+资产记录
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| symbol | [string](#string) |  | 标的 |
+| type | [AssetsRecordType](#biss.api.v1.asset.AssetsRecordType) |  | 类型 |
+| qty | [string](#string) |  | 数量 |
+| time | [uint64](#uint64) |  | 时间(UTC timestamp in millisecond) |
+| from | [biss.common.AccountType](#biss.common.AccountType) |  | 转出 |
+| to | [biss.common.AccountType](#biss.common.AccountType) |  | 转入 |
+
+
+
+
+
+
+<a name="biss.api.v1.asset.AssetsRecordReq"></a>
+
+### AssetsRecordReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| pagination | [biss.common.PaginationReq](#biss.common.PaginationReq) |  | 分页信息 |
+| filter | [AssetsRecordFilter](#biss.api.v1.asset.AssetsRecordFilter) |  | 筛选信息 |
+| account | [biss.common.AccountType](#biss.common.AccountType) |  | 账户 |
+
+
+
+
+
+
 <a name="biss.api.v1.asset.AssetsReq"></a>
 
 ### AssetsReq
@@ -132,6 +250,7 @@
 | btc_value | [string](#string) |  | BTC 估值 |
 | values | [LegalValue](#biss.api.v1.asset.LegalValue) | repeated | 法币估值列表 |
 | assets | [Asset](#biss.api.v1.asset.Asset) | repeated | 资产列表 |
+| contract | [AssetsContract](#biss.api.v1.asset.AssetsContract) | repeated | 合约资产 |
 
 
 
@@ -328,6 +447,73 @@ symbol 可选，symbol 不存在则返回全部历史
 | page | [uint32](#uint32) |  |  |
 | has_more | [bool](#bool) |  |  |
 | rewards | [Reward](#biss.api.v1.asset.Reward) | repeated | 活动 |
+
+
+
+
+
+
+<a name="biss.api.v1.asset.RiskLimitList"></a>
+
+### RiskLimitList
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| items | [RiskLimitListItem](#biss.api.v1.asset.RiskLimitListItem) | repeated |  |
+
+
+
+
+
+
+<a name="biss.api.v1.asset.RiskLimitListItem"></a>
+
+### RiskLimitListItem
+风险限额列表
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| symbol | [string](#string) |  | 标的 |
+| risk_limit_id | [uint32](#uint32) |  | 风险限额id |
+| risk_limit | [string](#string) |  | 限额 |
+| maintenance_margin_pct | [string](#string) |  | 维持保证金率 |
+| initial_margin_pct | [string](#string) |  | 初始保证金率 |
+| max_leverage | [string](#string) |  | 最大杠杆 |
+| leverage_list | [string](#string) | repeated | 杠杆列表 |
+
+
+
+
+
+
+<a name="biss.api.v1.asset.RiskLimitListReq"></a>
+
+### RiskLimitListReq
+风险限额列表请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| symbol | [string](#string) |  | 标的 |
+
+
+
+
+
+
+<a name="biss.api.v1.asset.RiskLimitReq"></a>
+
+### RiskLimitReq
+风险限额请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| symbol | [string](#string) |  | 标的 |
+| risk_limit_id | [uint32](#uint32) |  | 风险限额id |
 
 
 
@@ -542,6 +728,18 @@ symbol 可选，symbol 不存在则返回全部历史
  
 
 
+<a name="biss.api.v1.asset.AssetsRecordType"></a>
+
+### AssetsRecordType
+资产记录请求
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ART_NONE | 0 |  |
+| ART_TRANSFER | 1 | 划转 |
+
+
+
 <a name="biss.api.v1.asset.DepositStatus"></a>
 
 ### DepositStatus
@@ -610,6 +808,9 @@ symbol 可选，symbol 不存在则返回全部历史
 | GetTickerList | [.biss.common.Empty](#biss.common.Empty) | [.biss.api.v1.system.TickerList](#biss.api.v1.system.TickerList) | 获取支持的币种 |
 | RewardHistory | [RewardHistoryReq](#biss.api.v1.asset.RewardHistoryReq) | [RewardHistoryResp](#biss.api.v1.asset.RewardHistoryResp) | 获取奖励历史 |
 | Transfer | [TransferReq](#biss.api.v1.asset.TransferReq) | [.biss.common.Empty](#biss.common.Empty) | 资产账户划转 |
+| GetAssetsRecord | [AssetsRecordReq](#biss.api.v1.asset.AssetsRecordReq) | [AssetsRecord](#biss.api.v1.asset.AssetsRecord) | 获取资产记录 |
+| GetRiskLimitList | [RiskLimitListReq](#biss.api.v1.asset.RiskLimitListReq) | [RiskLimitList](#biss.api.v1.asset.RiskLimitList) | 获取风险限额列表 |
+| SetRiskLimit | [RiskLimitReq](#biss.api.v1.asset.RiskLimitReq) | [.biss.common.Empty](#biss.common.Empty) | 设置风险限额 |
 
  
 

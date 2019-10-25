@@ -4,6 +4,7 @@
 ## Table of Contents
 
 - [proto/api/v1/quote.proto](#proto/api/v1/quote.proto)
+    - [ContractRealTime](#biss.api.v1.quote.ContractRealTime)
     - [FundRealTime](#biss.api.v1.quote.FundRealTime)
     - [FundRealTime.ETFFundRealTime](#biss.api.v1.quote.FundRealTime.ETFFundRealTime)
     - [KLineData](#biss.api.v1.quote.KLineData)
@@ -41,6 +42,26 @@
 <p align="right"><a href="#top">Top</a></p>
 
 ## proto/api/v1/quote.proto
+
+
+
+<a name="biss.api.v1.quote.ContractRealTime"></a>
+
+### ContractRealTime
+合约行情
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mark_price | [string](#string) |  | 标记价格 |
+| index_price | [string](#string) |  | 指数价格 |
+| open_interest | [string](#string) |  | 未平仓合约数量 |
+| funding_rate | [string](#string) |  | 资金费率 |
+| predicted_funding_rate | [string](#string) |  | 预期资金费率 |
+| countdown_hour | [string](#string) |  | 结算时间间隔 |
+
+
+
 
 
 
@@ -301,6 +322,7 @@ K 线数据更新
 | category | [biss.common.trade.Category](#biss.common.trade.Category) |  | 类型 |
 | sub_category | [biss.common.trade.SubCategory](#biss.common.trade.SubCategory) |  | 类型 |
 | fund | [FundRealTime](#biss.api.v1.quote.FundRealTime) |  | 基金行情 |
+| contract | [ContractRealTime](#biss.api.v1.quote.ContractRealTime) |  | 合约行情 |
 
 
 
